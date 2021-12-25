@@ -12,29 +12,29 @@ namespace AhmadMayahi\Polly\Enums;
  *
  * @link https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html
  */
-enum SpeechMarkType
+enum SpeechMarkType: string
 {
     /**
      * Indicates a sentence element in the input text.
      */
-    case sentence;
+    case Sentence = 'sentence';
 
     /**
      * Indicates a word element in the text.
      */
-    case word;
+    case Word = 'word';
 
     /**
      * Describes the face and mouth movements corresponding to each phoneme being spoken.
      *
      * @see https://docs.aws.amazon.com/polly/latest/dg/viseme.html
      */
-    case viseme;
+    case Viseme = 'viseme';
 
     /**
      * Describes a <mark> element from the SSML input text.
      *
      * @see https://docs.aws.amazon.com/polly/latest/dg/ssml.html
      */
-    case ssml;
+    case Ssml = 'ssml';
 }

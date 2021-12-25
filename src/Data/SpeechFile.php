@@ -4,7 +4,7 @@ namespace AhmadMayahi\Polly\Data;
 
 use SplFileObject;
 
-class SpeechFile
+final class SpeechFile
 {
     public function __construct(
         public SplFileObject $file,

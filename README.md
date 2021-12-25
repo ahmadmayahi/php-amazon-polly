@@ -60,6 +60,7 @@ $speechFile->file;
 ```
 
 You may also request the [speech mark types](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) as follows:
+
 ```php
 use AhmadMayahi\Polly\Enums\SpeechMarkType;
 
@@ -68,7 +69,7 @@ $speechFile = $speech
     ->outputFormat(Output::mp3)
     ->text('Hello World')
     ->textType(TextType::Text)
-    ->speechMarks(SpeechMarkType::word, SpeechMarkType::sentence)
+    ->speechMarks(SpeechMarkType::word, SpeechMarkType::Sentence)
     ->save();
 ```
 
