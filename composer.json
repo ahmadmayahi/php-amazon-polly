@@ -1,12 +1,12 @@
 {
-    "name": "ahmadmayahi/php-polly",
-    "description": "This is my package php-polly",
+    "name": "ahmadmayahi/php-amazon-polly",
+    "description": "An elegant wrapper around Amazon Polly",
     "keywords": [
         "php",
         "aws",
         "polly"
     ],
-    "homepage": "https://github.com/ahmadmayahi/php-polly",
+    "homepage": "https://github.com/ahmadmayahi/php-amazon-polly",
     "license": "MIT",
     "authors": [
         {
