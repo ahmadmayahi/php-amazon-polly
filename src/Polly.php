@@ -70,9 +70,11 @@ class Polly extends AbstractClient
 
         foreach ($list as $item) {
             $item = trim($item);
+
             if (! $item) {
                 continue ;
             }
+
             yield json_decode($item);
         }
     }
