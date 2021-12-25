@@ -19,7 +19,7 @@
     verbose="true"
 >
     <testsuites>
-        <testsuite name="AhmadMayahi Test Suite">
+        <testsuite name="Amazon Polly for PHP Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
