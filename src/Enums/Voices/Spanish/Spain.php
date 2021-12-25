@@ -1,8 +1,8 @@
 <?php
 
-namespace AhmadMayahi\Polly\Enums\Voices;
+namespace AhmadMayahi\Polly\Enums\Voices\Spanish;
 
-enum SpanishSpain
+enum Spain
 {
     case Conchita;
 

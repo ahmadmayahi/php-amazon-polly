@@ -1,10 +1,10 @@
 <?php
 
-namespace AhmadMayahi\Polly\Enums\Voices;
+namespace AhmadMayahi\Polly\Enums\Voices\English;
 
 use AhmadMayahi\Polly\Contracts\Voice;
 
-enum EnglishUS implements Voice
+enum UnitedStates implements Voice
 {
     case Ivy;
 

@@ -45,9 +45,9 @@ class Polly extends AbstractClient
 
         $speechMarks = [];
 
-        if ($this->speechMarks) {
+        if ($this->speechMarks && $this->outputFormat !== OutputFormat::json) {
             $speechMarks = $this->generateSpeechMarks(...$this->speechMarks);
-            $speechMarks = array_filter(iterator_to_array($speechMarks));
+            $speechMarks = iterator_to_array($speechMarks);
         }
 
         return new SpeechFile(
@@ -66,7 +66,13 @@ class Polly extends AbstractClient
             ->speechMarks(...$speechMarkType)
             ->getStreamContents();
 
-        foreach (explode(PHP_EOL, $speechMarksList) as $item) {
+        $list = array_filter(explode(PHP_EOL, $speechMarksList));
+
+        foreach ($list as $item) {
+            $item = trim($item);
+            if (!$item) {
+                continue ;
+            }
             yield json_decode($item);
         }
     }

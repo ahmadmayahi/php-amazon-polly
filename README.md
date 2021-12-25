@@ -39,12 +39,11 @@ $speech = Polly::init($config);
 Return the text in `MP3` format:
 
 ```php
-use AhmadMayahi\Polly\Enums\Voices\EnglishUS;
-use AhmadMayahi\Polly\Enums\OutputFormat;
 use AhmadMayahi\Polly\Enums\TextType;
+use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
 
 $speechFile = $speech
-    ->voice(EnglishUS::Joanna)
+    ->voice(UnitedStates::Joanna)
     ->outputFormat(Output::mp3)
     ->text('Hello World')
     ->textType(TextType::Text)

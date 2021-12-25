@@ -1,6 +1,6 @@
 <?php
 
-namespace AhmadMayahi\Polly\Enums\Voices;
+namespace AhmadMayahi\Polly\Enums\Voices\French;
 
 enum French: string
 {

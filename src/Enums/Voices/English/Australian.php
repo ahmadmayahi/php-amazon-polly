@@ -1,27 +1,27 @@
 <?php
 
-namespace AhmadMayahi\Polly\Enums\Voices;
+namespace AhmadMayahi\Polly\Enums\Voices\English;
 
-enum PortugueseBrazilian
+enum Australian
 {
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
-    case Camila;
-
     /**
      * Gender:          Female
      * Neural Voice:    No
      * Standard Voice:  Yes
      */
-    case Vitoria;
+    case Nicole;
+
+    /**
+     * Gender:          Female
+     * Neural Voice:    Yes
+     * Standard Voice:  Yes
+     */
+    case Olivia;
 
     /**
      * Gender:          Male
      * Neural Voice:    No
      * Standard Voice:  Yes
      */
-    case Ricardo;
+    case Russell;
 }

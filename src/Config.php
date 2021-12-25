@@ -2,7 +2,7 @@
 
 namespace AhmadMayahi\Polly;
 
-final class Config
+class Config
 {
     private array $config = [
         'version' => 'latest',
