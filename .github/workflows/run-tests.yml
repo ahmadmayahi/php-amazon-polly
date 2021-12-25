@@ -24,8 +24,8 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, bcmath, intl, iconv, imagick, fileinfo
-          coverage: none
+          extensions: dom, curl, libxml, mbstring, zip, bcmath, intl, fileinfo
+          coverage: xdebug
 
       - name: Setup problem matchers
         run: |
