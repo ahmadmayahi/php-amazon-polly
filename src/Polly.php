@@ -70,7 +70,7 @@ class Polly extends AbstractClient
 
         foreach ($list as $item) {
             $item = trim($item);
-            if (!$item) {
+            if (! $item) {
                 continue ;
             }
             yield json_decode($item);
@@ -142,7 +142,7 @@ class Polly extends AbstractClient
         ];
 
         if ($this->speechMarks && $this->outputFormat === OutputFormat::json) {
-            $list['SpeechMarkTypes'] = array_map(fn($item) => $item->name, $this->speechMarks);
+            $list['SpeechMarkTypes'] = array_map(fn ($item) => $item->name, $this->speechMarks);
         }
 
         return $list;

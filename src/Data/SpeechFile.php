@@ -9,7 +9,6 @@ class SpeechFile
     public function __construct(
         public SplFileObject $file,
         public array $speechMarks = []
-    )
-    {
+    ) {
     }
 }

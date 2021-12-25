@@ -8,7 +8,6 @@ class FileSystem
 {
     public function __construct(private string $tempDirPath)
     {
-
     }
 
     public function getTempDir(string $include = null): string
