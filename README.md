@@ -6,7 +6,7 @@
 <hr>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ahmadmayahi/php-polly.svg?style=flat-square)](https://packagist.org/packages/ahmadmayahi/php-polly)
-[![Tests](https://github.com/ahmadmayahi/php-polly/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/ahmadmayahi/php-polly/actions/workflows/run-tests.yml)
+[![Tests](https://github.com/ahmadmayahi/php-polly/actions/workflows/run-tests.yml/badge.svg?branch=main&style=flat-square)](https://github.com/ahmadmayahi/php-polly/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ahmadmayahi/php-polly.svg?style=flat-square)](https://packagist.org/packages/ahmadmayahi/php-polly)
 
 PHP Polly is an easy and elegant wrapper around [aws polly](https://aws.amazon.com/polly/) (a service that turns text into lifelike speech).
