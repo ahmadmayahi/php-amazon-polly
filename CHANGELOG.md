@@ -1,7 +1,7 @@
 # Changelog
 
-All notable changes to `php-polly` will be documented in this file.
+All notable changes will be documented in this file.
 
-## 1.0.0 - 202X-XX-XX
+## 1.0.0 - 2021-12-25
 
 - initial release

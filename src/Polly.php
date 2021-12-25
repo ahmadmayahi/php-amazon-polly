@@ -17,7 +17,7 @@ class Polly extends AbstractClient
 {
     private Voice $voice;
 
-    private OutputFormat $outputFormat = OutputFormat::mp3;
+    private OutputFormat $outputFormat = OutputFormat::Mp3;
 
     private TextType $textType = TextType::Text;
 
@@ -45,7 +45,7 @@ class Polly extends AbstractClient
 
         $speechMarks = [];
 
-        if ($this->speechMarks && $this->outputFormat !== OutputFormat::json) {
+        if ($this->speechMarks && $this->outputFormat !== OutputFormat::Json) {
             $speechMarks = $this->generateSpeechMarks(...$this->speechMarks);
             $speechMarks = iterator_to_array($speechMarks);
         }
@@ -60,7 +60,7 @@ class Polly extends AbstractClient
     {
         $speechMarksList = (new self($this->config, $this->client, $this->fileSystem))
             ->voice($this->voice)
-            ->outputFormat(OutputFormat::json)
+            ->outputFormat(OutputFormat::Json)
             ->text($this->text)
             ->textType($this->textType)
             ->speechMarks(...$speechMarkType)
@@ -143,7 +143,7 @@ class Polly extends AbstractClient
             'VoiceId' => $this->getVoice(),
         ];
 
-        if ($this->speechMarks && $this->outputFormat === OutputFormat::json) {
+        if ($this->speechMarks && $this->outputFormat === OutputFormat::Json) {
             $list['SpeechMarkTypes'] = array_map(fn ($item) => $item->name, $this->speechMarks);
         }
 

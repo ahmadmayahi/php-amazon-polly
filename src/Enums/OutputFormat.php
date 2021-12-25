@@ -4,11 +4,11 @@ namespace AhmadMayahi\Polly\Enums;
 
 enum OutputFormat: string
 {
-    case json = 'json';
+    case Json = 'json';
 
-    case mp3 = 'mp3';
+    case Mp3 = 'mp3';
 
-    case ogg = 'ogg_vorbis';
+    case Ogg = 'ogg_vorbis';
 
-    case pcm = 'pcm';
+    case Pcm = 'pcm';
 }

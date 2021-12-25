@@ -12,7 +12,7 @@ use Aws\Polly\PollyClient;
 use Aws\Result;
 use GuzzleHttp\Psr7\Stream;
 
-class SpeechTest extends AbstractTest
+final class SpeechTest extends AbstractTest
 {
     /** @test */
     public function it_should_get_stream_contents(): void
@@ -39,7 +39,7 @@ class SpeechTest extends AbstractTest
 
         $polly
             ->voice(UnitedStates::Ivy)
-            ->outputFormat(OutputFormat::mp3)
+            ->outputFormat(OutputFormat::Mp3)
             ->text('Hello World')
             ->textType(TextType::Text)
             ->getStreamContents();
@@ -89,10 +89,10 @@ class SpeechTest extends AbstractTest
 
         $speechFile = $polly
             ->voice(UnitedStates::Ivy)
-            ->outputFormat(OutputFormat::mp3)
+            ->outputFormat(OutputFormat::Mp3)
             ->text('Hello World')
             ->textType(TextType::Text)
-            ->speechMarks(SpeechMarkType::word)
+            ->speechMarks(SpeechMarkType::Word)
             ->save();
 
         $this->assertEquals([
