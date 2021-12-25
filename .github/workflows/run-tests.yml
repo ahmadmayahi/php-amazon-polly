@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    env:
+      XDEBUG_MODE: coverage
     strategy:
       fail-fast: true
       matrix:
