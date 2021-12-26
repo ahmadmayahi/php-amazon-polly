@@ -84,8 +84,8 @@ use AhmadMayahi\Polly\Enums\OutputFormat;
 use AhmadMayahi\Polly\Enums\SpeechMarkType;
 
 $speechFile = $speech
-    ->voice(EnglishUS::Joanna)
-    ->outputFormat(Output::mp3)
+    ->voice(UnitedStates::Joanna)
+    ->outputFormat(OutputFormat::Mp3)
     ->text('Hello World')
     ->textType(TextType::Text)
     // You may also add more options, such as: Sentence, Ssml etc...
