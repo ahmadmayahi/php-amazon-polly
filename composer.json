@@ -3,7 +3,7 @@
     "description": "An elegant wrapper around Amazon Polly",
     "keywords": [
         "php",
-        "aws",
+        "amazon",
         "polly"
     ],
     "homepage": "https://github.com/ahmadmayahi/php-amazon-polly",
