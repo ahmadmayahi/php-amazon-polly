@@ -15,12 +15,12 @@ class FileSystem
         return $this->tempDirPath . ($include ? DIRECTORY_SEPARATOR . $include : null);
     }
 
-    public function getTempFileName(string $extension): string
+    public function getTempFileName(): string
     {
         return tempnam(
             $this->getTempDir(),
             $this->generateRandomFileName()
-        ) . '.' . $extension;
+        );
     }
 
     public function generateRandomFileName(): string

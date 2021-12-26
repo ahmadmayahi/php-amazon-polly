@@ -9,6 +9,17 @@ use SplFileObject;
 
 abstract class AbstractTest extends TestCase
 {
+    /** @after */
+    public function setUp(): void
+    {
+        $tempPath = $this->getTempDir();
+        $files = array_diff(scandir($tempPath), ['.', '..', '.gitignore']);
+
+        foreach ($files as $file) {
+            @unlink($tempPath . $file);
+        }
+    }
+
     protected function getConfig(): Config
     {
         return (new Config())
@@ -29,5 +40,10 @@ abstract class AbstractTest extends TestCase
     protected function getVoicePathName(Voice $voice): string
     {
         return dirname(__DIR__) . DIRECTORY_SEPARATOR . 'files/voices/' . strtolower($voice->name).'.mp3';
+    }
+
+    protected function getTempDir(string $include = null): string
+    {
+        return dirname(__DIR__) . DIRECTORY_SEPARATOR . 'files/temp' . DIRECTORY_SEPARATOR . $include;
     }
 }

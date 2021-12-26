@@ -41,7 +41,7 @@ class Polly extends AbstractClient
 
     public function save(string $path = null): SpeechFile
     {
-        $path ??= $this->fileSystem->getTempFileName($this->getOutputFormat());
+        $path ??= $this->fileSystem->getTempFileName();
 
         $speechMarks = [];
 
