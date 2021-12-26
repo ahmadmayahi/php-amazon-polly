@@ -5,9 +5,13 @@
 <hr>
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-amazon-polly)
-[![Tests](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-amazon-polly)
-[![codecov](https://codecov.io/gh/ahmadmayahi/php-amazon-polly/branch/main/graph/badge.svg?token=eoGvnr3MQt)](https://codecov.io/gh/ahmadmayahi/php-amazon-polly)
+[![Tests](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml/badge.svg)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml)
+[![Check & fix styling](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/php-cs-fixer.yml)
+<br/>
+[![Test Coverage](https://codecov.io/gh/ahmadmayahi/php-amazon-polly/branch/main/graph/badge.svg?token=hayMyn8tLI)](https://codecov.io/gh/ahmadmayahi/php-amazon-polly)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ahmadmayahi/php-amazon-polly/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/ahmadmayahi/php-amazon-polly/?branch=main)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/ahmadmayahi/php-amazon-polly/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
 
 <hr/>
 
