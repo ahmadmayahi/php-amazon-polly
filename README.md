@@ -1,7 +1,6 @@
 
 <div align="center">
   <img style="width:300px" src="art/logo.png" alt="PHP Google Vision" />
-</div>
 
 <hr>
 
@@ -9,6 +8,10 @@
 [![Tests](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-amazon-polly)
 [![codecov](https://codecov.io/gh/ahmadmayahi/php-amazon-polly/branch/main/graph/badge.svg?token=eoGvnr3MQt)](https://codecov.io/gh/ahmadmayahi/php-amazon-polly)
+
+<hr/>
+
+</div>
 
 **PHP Amazon Polly** is an easy and elegant wrapper around [aws polly](https://aws.amazon.com/polly/) (a service that turns text into lifelike speech).
 
