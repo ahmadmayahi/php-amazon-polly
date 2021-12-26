@@ -5,9 +5,9 @@
 
 <hr>
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-polly)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-amazon-polly)
 [![Tests](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-polly)
+[![Total Downloads](https://img.shields.io/packagist/dt/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-amazon-polly)
 [![codecov](https://codecov.io/gh/ahmadmayahi/php-amazon-polly/branch/main/graph/badge.svg?token=eoGvnr3MQt)](https://codecov.io/gh/ahmadmayahi/php-amazon-polly)
 
 **PHP Amazon Polly** is an easy and elegant wrapper around [aws polly](https://aws.amazon.com/polly/) (a service that turns text into lifelike speech).
@@ -17,7 +17,7 @@
 You can install the package via composer:
 
 ```bash
-composer require ahmadmayahi/php-polly
+composer require ahmadmayahi/php-amazon-polly
 ```
 
 ## Usage
