@@ -123,36 +123,36 @@ array (
 
 All the [Amazon Polly Voices](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) are supported:
 
-| Language                | Enum                                                   |
-|-------------------------|--------------------------------------------------------|
-| Arabic                  | `AhmadMayahi\Polly\Enums\Voices\Arabic`                |
-| Chinese, Mandarin       | `AhmadMayahi\Polly\Enums\Voices\Chinese`               |
-| Danish                  | `AhmadMayahi\Polly\Enums\Voices\Danish`                |
-| Dutch                   | `AhmadMayahi\Polly\Enums\Voices\Dutch`                 |
-| English (Australian)    | `AhmadMayahi\Polly\Enums\Voices\English\Australian`    |
-| English (British)       | `AhmadMayahi\Polly\Enums\Voices\English\British`       |
-| English (Indian)        | `AhmadMayahi\Polly\Enums\Voices\English\Indian`        |
-| English (New Zealand)   | `AhmadMayahi\Polly\Enums\Voices\English\NewZealand)`   |
-| English (South African) | `AhmadMayahi\Polly\Enums\Voices\English\SouthAfrican)` |
-| English (United States) | `AhmadMayahi\Polly\Enums\Voices\English\UnitedStates)` |
-| French                  | `AhmadMayahi\Polly\Enums\Voices\French\French)`        |
-| French (Canadian)       | `AhmadMayahi\Polly\Enums\Voices\French\Canadian)`      |
-| German                  | `AhmadMayahi\Polly\Enums\Voices\German)`               |
-| Hindi                   | `AhmadMayahi\Polly\Enums\Voices\Hindi)`                |
-| Icelandic               | `AhmadMayahi\Polly\Enums\Voices\Icelandic)`            |
-| Italian                 | `AhmadMayahi\Polly\Enums\Voices\Italian)`              |
-| Japanese                | `AhmadMayahi\Polly\Enums\Voices\Japanese)`             |
-| Korean                  | `AhmadMayahi\Polly\Enums\Voices\Korean)`               |
-| Portuguese (Brazilian)  | `AhmadMayahi\Polly\Enums\Voices\Portuguese\Brazilian)` |
-| Portuguese (Portugal)   | `AhmadMayahi\Polly\Enums\Voices\Portuguese\Portugal)`  |
-| Romanian                | `AhmadMayahi\Polly\Enums\Voices\Romanian)`             |
-| Russian                 | `AhmadMayahi\Polly\Enums\Voices\Russian)`              |
-| Spanish (Mexican)       | `AhmadMayahi\Polly\Enums\Voices\Spanish\Mexican)`      |
-| Spanish (Spain)         | `AhmadMayahi\Polly\Enums\Voices\Spanish\Spain)`        |
-| Spanish (United States) | `AhmadMayahi\Polly\Enums\Voices\Spanish\UnitedStates)` |
-| Swedish                 | `AhmadMayahi\Polly\Enums\Voices\Swedish)`              |
-| Turkish                 | `AhmadMayahi\Polly\Enums\Voices\Turkish)`              |
-| Welsh                   | `AhmadMayahi\Polly\Enums\Voices\Welsh)`                |
+| Language                | Enum                                                  |
+|-------------------------|-------------------------------------------------------|
+| Arabic                  | `AhmadMayahi\Polly\Enums\Voices\Arabic`               |
+| Chinese, Mandarin       | `AhmadMayahi\Polly\Enums\Voices\Chinese`              |
+| Danish                  | `AhmadMayahi\Polly\Enums\Voices\Danish`               |
+| Dutch                   | `AhmadMayahi\Polly\Enums\Voices\Dutch`                |
+| English (Australian)    | `AhmadMayahi\Polly\Enums\Voices\English\Australian`   |
+| English (British)       | `AhmadMayahi\Polly\Enums\Voices\English\British`      |
+| English (Indian)        | `AhmadMayahi\Polly\Enums\Voices\English\Indian`       |
+| English (New Zealand)   | `AhmadMayahi\Polly\Enums\Voices\English\NewZealand`   |
+| English (South African) | `AhmadMayahi\Polly\Enums\Voices\English\SouthAfrican` |
+| English (United States) | `AhmadMayahi\Polly\Enums\Voices\English\UnitedStates` |
+| French                  | `AhmadMayahi\Polly\Enums\Voices\French\French`        |
+| French (Canadian)       | `AhmadMayahi\Polly\Enums\Voices\French\Canadian`      |
+| German                  | `AhmadMayahi\Polly\Enums\Voices\German`               |
+| Hindi                   | `AhmadMayahi\Polly\Enums\Voices\Hindi`                |
+| Icelandic               | `AhmadMayahi\Polly\Enums\Voices\Icelandic`            |
+| Italian                 | `AhmadMayahi\Polly\Enums\Voices\Italian`              |
+| Japanese                | `AhmadMayahi\Polly\Enums\Voices\Japanese`             |
+| Korean                  | `AhmadMayahi\Polly\Enums\Voices\Korean`               |
+| Portuguese (Brazilian)  | `AhmadMayahi\Polly\Enums\Voices\Portuguese\Brazilian` |
+| Portuguese (Portugal)   | `AhmadMayahi\Polly\Enums\Voices\Portuguese\Portugal`  |
+| Romanian                | `AhmadMayahi\Polly\Enums\Voices\Romanian`             |
+| Russian                 | `AhmadMayahi\Polly\Enums\Voices\Russian`              |
+| Spanish (Mexican)       | `AhmadMayahi\Polly\Enums\Voices\Spanish\Mexican`      |
+| Spanish (Spain)         | `AhmadMayahi\Polly\Enums\Voices\Spanish\Spain`        |
+| Spanish (United States) | `AhmadMayahi\Polly\Enums\Voices\Spanish\UnitedStates` |
+| Swedish                 | `AhmadMayahi\Polly\Enums\Voices\Swedish`              |
+| Turkish                 | `AhmadMayahi\Polly\Enums\Voices\Turkish`              |
+| Welsh                   | `AhmadMayahi\Polly\Enums\Voices\Welsh`                |
 
 For example, if you want to get `Gabrielle` from French (Canadian):
 
