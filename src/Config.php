@@ -10,6 +10,11 @@ class Config
         'debug' => false,
     ];
 
+    public function debug(): static
+    {
+        return $this->set('debug', true);
+    }
+
     public function setKey(string $accessKey): static
     {
         return $this->set('key', $accessKey);
