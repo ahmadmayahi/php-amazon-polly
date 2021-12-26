@@ -93,7 +93,7 @@ final class SpeechTest extends AbstractTest
             ->text('Hello World')
             ->textType(TextType::Text)
             ->speechMarks(SpeechMarkType::Word)
-            ->save();
+            ->convert();
 
         $this->assertEquals([
             (object) [

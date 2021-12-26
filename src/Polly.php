@@ -39,7 +39,7 @@ class Polly extends AbstractClient
         return $this->synthesize()->get('AudioStream')->getContents();
     }
 
-    public function save(string $path = null): SpeechFile
+    public function convert(string $path = null): SpeechFile
     {
         $path ??= $this->fileSystem->getTempFileName();
 
