@@ -2,7 +2,7 @@
 
 namespace AhmadMayahi\Polly\Enums\Voices\English;
 
-enum SouthAfrica
+enum SouthAfrican
 {
     /**
      * Gender:          Female
