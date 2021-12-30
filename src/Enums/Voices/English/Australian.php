@@ -1,27 +1,34 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly\Enums\Voices\English;
 
-enum Australian
+use AhmadMayahi\Polly\Contracts\Voice;
+use AhmadMayahi\Polly\Data\VoiceDescription;
+use AhmadMayahi\Polly\Enums\Gender;
+use AhmadMayahi\Polly\Enums\Language;
+use AhmadMayahi\Polly\Utils\VoiceDescriptionFactory;
+
+enum Australian implements Voice
 {
-    /**
-     * Gender:          Female
-     * Neural Voice:    No
-     * Standard Voice:  Yes
-     */
     case Nicole;
 
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Olivia;
 
-    /**
-     * Gender:          Male
-     * Neural Voice:    No
-     * Standard Voice:  Yes
-     */
     case Russell;
+
+    public function describe(): VoiceDescription
+    {
+        return match ($this) {
+            self::Nicole => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: false, standard: true),
+            self::Olivia => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: false),
+            self::Russell => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: false, standard: true),
+        };
+    }
+
+    public function language(): Language
+    {
+        return Language::EnglishAustralian;
+    }
 }

@@ -3,7 +3,7 @@
 namespace AhmadMayahi\Polly\Tests;
 
 use AhmadMayahi\Polly\Enums\OutputFormat;
-use AhmadMayahi\Polly\Enums\SpeechMarkType;
+use AhmadMayahi\Polly\Enums\SpeechMark;
 use AhmadMayahi\Polly\Enums\TextType;
 use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
 use AhmadMayahi\Polly\Polly;
@@ -92,7 +92,7 @@ final class SpeechTest extends AbstractTest
             ->outputFormat(OutputFormat::Mp3)
             ->text('Hello World')
             ->textType(TextType::Text)
-            ->speechMarks(SpeechMarkType::Word)
+            ->speechMarks(SpeechMark::Word)
             ->convert();
 
         $this->assertEquals([

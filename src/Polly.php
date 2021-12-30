@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly;
 
 use AhmadMayahi\Polly\Contracts\Voice;
 use AhmadMayahi\Polly\Data\SpeechFile;
 use AhmadMayahi\Polly\Enums\OutputFormat;
-use AhmadMayahi\Polly\Enums\SpeechMarkType;
+use AhmadMayahi\Polly\Enums\SpeechMark;
 use AhmadMayahi\Polly\Enums\TextType;
 use AhmadMayahi\Polly\Exceptions\PollyException;
 use AhmadMayahi\Polly\Utils\AbstractClient;
@@ -45,18 +47,18 @@ class Polly extends AbstractClient
 
         $speechMarks = [];
 
-        if ($this->speechMarks && $this->outputFormat !== OutputFormat::Json) {
+        if ($this->speechMarks) {
             $speechMarks = $this->generateSpeechMarks(...$this->speechMarks);
             $speechMarks = iterator_to_array($speechMarks);
         }
 
         return new SpeechFile(
-            $this->fileSystem->save($path, $this->getStreamContents()),
+            $this->outputFormat !== OutputFormat::Json ? $this->fileSystem->save($path, $this->getStreamContents()) : null,
             $speechMarks,
         );
     }
 
-    private function generateSpeechMarks(SpeechMarkType ...$speechMarkType): Generator
+    private function generateSpeechMarks(SpeechMark ...$speechMarkType): Generator
     {
         $speechMarksList = (new self($this->config, $this->client, $this->fileSystem))
             ->voice($this->voice)
@@ -127,7 +129,7 @@ class Polly extends AbstractClient
         return $this->textType->value;
     }
 
-    public function speechMarks(SpeechMarkType ...$speechMarkType): static
+    public function speechMarks(SpeechMark ...$speechMarkType): static
     {
         $this->speechMarks = $speechMarkType;
 
@@ -144,7 +146,7 @@ class Polly extends AbstractClient
         ];
 
         if ($this->speechMarks && $this->outputFormat === OutputFormat::Json) {
-            $list['SpeechMarkTypes'] = array_map(fn ($item) => $item->name, $this->speechMarks);
+            $list['SpeechMarkTypes'] = array_map(fn ($item) => $item->value, $this->speechMarks);
         }
 
         return $list;

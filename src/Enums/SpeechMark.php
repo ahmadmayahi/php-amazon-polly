@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly\Enums;
 
 /**
@@ -12,7 +14,7 @@ namespace AhmadMayahi\Polly\Enums;
  *
  * @link https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html
  */
-enum SpeechMarkType: string
+enum SpeechMark: string
 {
     /**
      * Indicates a sentence element in the input text.
