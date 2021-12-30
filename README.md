@@ -20,6 +20,13 @@ For feedback, please [contact me](https://form.jotform.com/201892949858375).
 
 **PHP Amazon Polly** is an easy and elegant wrapper around [Amazon Polly](https://aws.amazon.com/polly/), a service that turns text into lifelike speech.
 
+# Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Voices](#voices)
+  - [Describe Voice](#describe-voice)
+
 ## Installation
 
 You can install the package via composer:
@@ -81,7 +88,7 @@ You may also request the [Speech Mark Types](https://docs.aws.amazon.com/polly/l
 use AhmadMayahi\Polly\Enums\TextType;
 use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
 use AhmadMayahi\Polly\Enums\OutputFormat;
-use AhmadMayahi\Polly\Enums\SpeechMarkType;
+use AhmadMayahi\Polly\Enums\SpeechMark;
 
 $speechFile = $speech
     ->voice(UnitedStates::Joanna)
@@ -89,7 +96,7 @@ $speechFile = $speech
     ->text('Hello World')
     ->textType(TextType::Text)
     // You may also add more options, such as: Sentence, Ssml etc...
-    ->speechMarks(SpeechMarkType::Word)
+    ->speechMarks(SpeechMark::Word)
     ->convert();
 ```
 
@@ -151,11 +158,31 @@ All the [Amazon Polly Voices](https://docs.aws.amazon.com/polly/latest/dg/voicel
 | Turkish                 | `AhmadMayahi\Polly\Enums\Voices\Turkish`              |
 | Welsh                   | `AhmadMayahi\Polly\Enums\Voices\Welsh`                |
 
-For example, if you want to get `Gabrielle` from French (Canadian):
+For example, if you want to get `Nicole` from English (Australian):
 
 ```php
-\AhmadMayahi\Polly\Enums\Voices\French\Canadian::Gabrielle;
+use AhmadMayahi\Polly\Enums\Voices\English\Australian;
+
+Australian::Nicole;
 ```
+
+### Describe Voice
+
+You can also describe the voice using the `describe` method as follows:
+
+```php
+use AhmadMayahi\Polly\Enums\Voices\English\Australian;
+
+Australian::Nicole->describe();
+```
+
+The `describe` method returns an object of type `AhmadMayahi\Polly\Data\DescribeVoice` with the following properties:
+
+* `gender`: Determines the voice's gender. 
+* `neural`: Is it Neural Voice?
+* `standard`: Is it Standard Voice?
+* `bilingual`: Is it bilingual? [Read more](https://docs.aws.amazon.com/polly/latest/dg/bilingual-voices.html).
+* `newscaster`: Does it do a newscaster speaking style? [Read more](https://docs.aws.amazon.com/polly/latest/dg/ntts-speakingstyles.html)
 
 ## Testing
 

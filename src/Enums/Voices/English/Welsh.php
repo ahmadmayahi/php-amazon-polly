@@ -1,13 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly\Enums\Voices\English;
 
-enum Welsh
+use AhmadMayahi\Polly\Contracts\Voice;
+use AhmadMayahi\Polly\Data\VoiceDescription;
+use AhmadMayahi\Polly\Enums\Gender;
+use AhmadMayahi\Polly\Enums\Language;
+use AhmadMayahi\Polly\Utils\VoiceDescriptionFactory;
+
+enum Welsh implements Voice
 {
-    /**
-     * Gender:          Male
-     * Neural Voice:    No
-     * Standard Voice:  Yes
-     */
     case Geraint;
+
+    public function describe(): VoiceDescription
+    {
+        return VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: false, standard: true);
+    }
+
+    public function language(): Language
+    {
+        return Language::EnglishWelsh;
+    }
 }

@@ -1,71 +1,50 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly\Enums\Voices\English;
 
 use AhmadMayahi\Polly\Contracts\Voice;
+use AhmadMayahi\Polly\Data\VoiceDescription;
+use AhmadMayahi\Polly\Enums\Gender;
+use AhmadMayahi\Polly\Enums\Language;
+use AhmadMayahi\Polly\Utils\VoiceDescriptionFactory;
 
 enum UnitedStates implements Voice
 {
-    /**
-     * Gender:          Female (child)
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Ivy;
 
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Joanna;
 
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Kendra;
 
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Kimberly;
 
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Salli;
 
-    /**
-     * Gender:          Female
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Joey;
 
-    /**
-     * Gender:          Male (child)
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Justin;
 
-    /**
-     * Gender:          Male (child)
-     * Neural Voice:    Yes
-     * Standard Voice:  No
-     */
     case Kevin;
 
-    /**
-     * Gender:          Male
-     * Neural Voice:    Yes
-     * Standard Voice:  Yes
-     */
     case Matthew;
+
+    public function describe(): VoiceDescription
+    {
+        return match ($this) {
+            self::Ivy => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true, child: true),
+            self::Joanna => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true, newscaster: true),
+            self::Kendra, self::Kimberly, self::Salli => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true),
+            self::Joey => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: true, standard: true),
+            self::Justin => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: true, standard: true, child: true),
+            self::Kevin => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: true, standard: false, child: true),
+            self::Matthew => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: true, standard: true, newscaster: true),
+        };
+    }
+
+    public function language(): Language
+    {
+        return Language::EnglishUnitedStates;
+    }
 }
