@@ -81,6 +81,12 @@ Get the `MP3` file:
 $speechFile->file;
 ```
 
+By default, the `convert` method saves the file into the default temp. directory; If you want to save the file into a specific directory then you might need to provide the file location as follows:
+
+```php
+    ->convert('/path/to/desire/file/voice.mp3');
+```
+
 You may also request the [Speech Mark Types](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) as follows:
 
 ```php
