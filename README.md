@@ -22,7 +22,8 @@ For feedback, please [contact me](https://form.jotform.com/201892949858375).
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Voices](#voices)
+- [Standard vs Neural Voices](#standard-vs-neural-voices)
+- [Voices List](#voices-list)
   - [Describe Voice](#describe-voice)
 
 ## Installation
@@ -150,7 +151,7 @@ $speechFile = $speech
 
 > Not all the voices support the `nueral` system, for more information please visit [Voices in Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) page.
 
-## Voices
+## Voices List
 
 All the [Amazon Polly Voices](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) are supported:
 
