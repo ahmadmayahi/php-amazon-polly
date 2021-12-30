@@ -9,6 +9,7 @@ use AhmadMayahi\Polly\Data\SpeechFile;
 use AhmadMayahi\Polly\Enums\OutputFormat;
 use AhmadMayahi\Polly\Enums\SpeechMark;
 use AhmadMayahi\Polly\Enums\TextType;
+use AhmadMayahi\Polly\Enums\VoiceType;
 use AhmadMayahi\Polly\Exceptions\PollyException;
 use AhmadMayahi\Polly\Utils\AbstractClient;
 use Aws\Result;
@@ -26,6 +27,8 @@ class Polly extends AbstractClient
     private string $text;
 
     private array $speechMarks = [];
+
+    private VoiceType $voiceType = VoiceType::Auto;
 
     public function synthesize(): Result
     {
@@ -124,6 +127,13 @@ class Polly extends AbstractClient
         return $this;
     }
 
+    public function voiceType(VoiceType $voiceType): static
+    {
+        $this->voiceType = $voiceType;
+
+        return $this;
+    }
+
     public function getTextType(): string
     {
         return $this->textType->value;
@@ -143,6 +153,7 @@ class Polly extends AbstractClient
             'OutputFormat' => $this->getOutputFormat(),
             'TextType' => $this->getTextType(),
             'VoiceId' => $this->getVoice(),
+            'Engine' => $this->getEngine(),
         ];
 
         if ($this->speechMarks && $this->outputFormat === OutputFormat::Json) {
@@ -150,5 +161,24 @@ class Polly extends AbstractClient
         }
 
         return $list;
+    }
+
+    private function getEngine(): string
+    {
+        if ($this->voiceType == VoiceType::Auto) {
+            if ($this->voice->describe()->standard === true) {
+                return 'standard';
+            }
+
+            return 'neural';
+        }
+
+        if ($this->voiceType === VoiceType::Standard) {
+            return 'standard';
+        }
+
+        if ($this->voiceType === VoiceType::Neural) {
+            return 'neural';
+        }
     }
 }

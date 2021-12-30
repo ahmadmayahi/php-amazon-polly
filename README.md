@@ -121,6 +121,35 @@ array (
 );
 ```
 
+## Standard vs Neural Voices
+
+Amazon Polly provides two voice systems `Standard` and `Neural`.
+
+The `Neural` system can produce higher quality voices than the standard voices.
+
+By default, this package will always use the `Standard` voice if available, otherwise it uses the `Neural` voice.
+
+You may use the `voiceType` method if you want to change between `Standard` and `Neural` system:
+
+```php
+use AhmadMayahi\Polly\Enums\TextType;
+use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Enums\OutputFormat;
+use AhmadMayahi\Polly\Enums\SpeechMark;
+use AhmadMayahi\Polly\Enums\VoiceType;
+
+$speechFile = $speech
+    ->voice(UnitedStates::Joanna)
+    ->outputFormat(OutputFormat::Mp3)
+    ->text('Hello World')
+    ->textType(TextType::Text)
+    // Use neural system
+    ->voiceType(VoiceType::Neural)
+    ->convert();
+```
+
+> Not all the voices support the `nueral` system, for more information please visit [Voices in Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) page.
+
 ## Voices
 
 All the [Amazon Polly Voices](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) are supported:
