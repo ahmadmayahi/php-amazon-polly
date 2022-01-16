@@ -14,6 +14,7 @@ use AhmadMayahi\Polly\Exceptions\PollyException;
 use AhmadMayahi\Polly\Utils\AbstractClient;
 use Aws\Result;
 use Generator;
+use GuzzleHttp\Psr7\Stream;
 use Throwable;
 
 class Polly extends AbstractClient
@@ -39,9 +40,14 @@ class Polly extends AbstractClient
         }
     }
 
-    public function getStreamContents()
+    public function getStream(): Stream
     {
-        return $this->synthesize()->get('AudioStream')->getContents();
+        return $this->synthesize()->get('AudioStream');
+    }
+
+    public function getStreamContents(): string
+    {
+        return $this->getStream()->getContents();
     }
 
     public function convert(string $path = null): SpeechFile
