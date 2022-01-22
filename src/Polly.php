@@ -67,6 +67,34 @@ class Polly extends AbstractClient
         );
     }
 
+    public function toMp3(string $path = null): SpeechFile
+    {
+        $this->outputFormat = OutputFormat::Mp3;
+
+        return $this->convert($path);
+    }
+
+    public function toJson(string $path = null): SpeechFile
+    {
+        $this->outputFormat = OutputFormat::Json;
+
+        return $this->convert($path);
+    }
+
+    public function toPcm(string $path = null): SpeechFile
+    {
+        $this->outputFormat = OutputFormat::Pcm;
+
+        return $this->convert($path);
+    }
+
+    public function toOgg(string $path = null): SpeechFile
+    {
+        $this->outputFormat = OutputFormat::Ogg;
+
+        return $this->convert($path);
+    }
+
     private function generateSpeechMarks(SpeechMark ...$speechMarkType): Generator
     {
         $speechMarksList = (new self($this->config, $this->client, $this->fileSystem))
