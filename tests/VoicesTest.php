@@ -1,6 +1,6 @@
 <?php
 
-namespace AhmadMayahi\Polly\Tests\Voices;
+namespace AhmadMayahi\Polly\Tests;
 
 use AhmadMayahi\Polly\Data\VoiceDescription;
 use AhmadMayahi\Polly\Enums\Gender;
@@ -16,7 +16,7 @@ use AhmadMayahi\Polly\Enums\Voices\Italian;
 use AhmadMayahi\Polly\Enums\Voices\Japanese;
 use AhmadMayahi\Polly\Enums\Voices\Korean;
 use AhmadMayahi\Polly\Enums\Voices\Norwegian;
-use AhmadMayahi\Polly\Tests\AbstractTest;
+use AhmadMayahi\Polly\Enums\Voices\Polish;
 
 class VoicesTest extends AbstractTest
 {
@@ -215,6 +215,50 @@ class VoicesTest extends AbstractTest
         $this->assertEquals(
             new VoiceDescription(name: Norwegian::Liv, gender: Gender::Female, neural: false, standard: true),
             Norwegian::Liv->describe()
+        );
+    }
+
+    /** @test */
+    public function it_should_describe_ewa_in_polish_language(): void
+    {
+        $this->assertEquals(Language::Polish, Polish::Ewa->language());
+
+        $this->assertEquals(
+            new VoiceDescription(name: Polish::Ewa, gender: Gender::Female, neural: false, standard: true),
+            Polish::Ewa->describe()
+        );
+    }
+
+    /** @test */
+    public function it_should_describe_maja_in_polish_language(): void
+    {
+        $this->assertEquals(Language::Polish, Polish::Maja->language());
+
+        $this->assertEquals(
+            new VoiceDescription(name: Polish::Maja, gender: Gender::Female, neural: false, standard: true),
+            Polish::Maja->describe()
+        );
+    }
+
+    /** @test */
+    public function it_should_describe_jacek_in_polish_language(): void
+    {
+        $this->assertEquals(Language::Polish, Polish::Jacek->language());
+
+        $this->assertEquals(
+            new VoiceDescription(name: Polish::Jacek, gender: Gender::Male, neural: false, standard: true),
+            Polish::Jacek->describe()
+        );
+    }
+
+    /** @test */
+    public function it_should_describe_jan_in_polish_language(): void
+    {
+        $this->assertEquals(Language::Polish, Polish::Jan->language());
+
+        $this->assertEquals(
+            new VoiceDescription(name: Polish::Jan, gender: Gender::Male, neural: false, standard: true),
+            Polish::Jan->describe()
         );
     }
 }
