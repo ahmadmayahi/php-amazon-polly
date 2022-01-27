@@ -28,7 +28,7 @@ class FileSystem
         return sha1(uniqid() . time());
     }
 
-    public function save($path, $contents): SplFileObject
+    public function save(string $path, $contents): SplFileObject
     {
         file_put_contents($path, $contents);
 
