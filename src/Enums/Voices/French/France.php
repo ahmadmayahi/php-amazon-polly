@@ -10,7 +10,7 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Utils\VoiceDescriptionFactory;
 
-enum French implements Voice
+enum France implements Voice
 {
     case Celine;
 

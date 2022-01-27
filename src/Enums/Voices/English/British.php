@@ -22,7 +22,7 @@ enum British implements Voice
     {
         return match ($this) {
             self::Amy => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true, newscaster: true),
-            self::Emma => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural:  true, standard: true),
+            self::Emma => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true),
             self::Brian => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: true, standard: true),
         };
     }
