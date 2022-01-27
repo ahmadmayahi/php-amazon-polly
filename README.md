@@ -22,8 +22,10 @@ For feedback, please [contact me](https://form.jotform.com/201892949858375).
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Speech Marks](#speech-marks)
 - [Standard vs Neural Voices](#standard-vs-neural-voices)
-- [Voices List](#voices-list)
+- [Voice Methods](#voice-methods)
+- [Voice Enums](#voice-enums)
   - [Describe Voice](#describe-voice)
 
 ## Installation
@@ -50,7 +52,7 @@ $config = (new Config())
 $polly = Polly::init($config);
 ```
 
-Return the text in `MP3` format:
+Save as MP3 file:
 
 ```php
 use AhmadMayahi\Polly\Enums\TextType;
@@ -58,34 +60,40 @@ use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
 use AhmadMayahi\Polly\Enums\OutputFormat;
 
 $speechFile = $speech
-    // All Amazon voices are supported  
-    ->voice(UnitedStates::Joanna)
+    // All Amazon voices are supported
+    ->voiceId(UnitedStates::Joanna)
     
-    // Available options: Mp3, Ogg, Pcm, Json
-    ->outputFormat(OutputFormat::Mp3)
+    // Available options: asMp3(), asOgg(), asPcm(), asJson()
+    ->asMp3()
     
     // Desired Text
     ->text('Hello World')
     
-    // Available options; Text, Ssml
-    ->textType(TextType::Text)
+    // Optional: Use SSML instead of plain text
+    ->ssml()
     
     // Returns an object of type `AhmadMayahi\Polly\Data\SpeechFile`.
     ->convert();
 ```
 
-Get the `MP3` file:
+The `convert` method returns an object of type `AhmadMayahi\Polly\Data\SpeechFile` which has three properties:
+
+* `file`: the output file in `SplFileObject`.
+* `speechMarks` (if any).
+* `took`: how long did it take to convert the text.
+
+By default, the `convert` method saves the file into the default temp. directory; If you want to save the file into a specific directory then you might need to provide the file path as param:
 
 ```php
-// The `file` is of type SplFileObject
-$speechFile->file;
+->convert('/path/to/desire/file/voice.mp3');
 ```
 
-By default, the `convert` method saves the file into the default temp. directory; If you want to save the file into a specific directory then you might need to provide the file location as follows:
-
+The `voiceId()` also accept a string:
 ```php
-    ->convert('/path/to/desire/file/voice.mp3');
+->voiceId('Joanna')
 ```
+
+## Speech Marks
 
 You may also request the [Speech Mark Types](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) as follows:
 
@@ -96,16 +104,15 @@ use AhmadMayahi\Polly\Enums\OutputFormat;
 use AhmadMayahi\Polly\Enums\SpeechMark;
 
 $speechFile = $speech
-    ->voice(UnitedStates::Joanna)
-    ->outputFormat(OutputFormat::Mp3)
+    ->voiceId(UnitedStates::Joanna)
+    ->asMp3()
     ->text('Hello World')
-    ->textType(TextType::Text)
     // You may also add more options, such as: Sentence, Ssml etc...
     ->speechMarks(SpeechMark::Word)
     ->convert();
 ```
 
-> The `speechMarks` methods issues another request to get the speech marks.
+> The `speechMarks()` method issues another request to get the speech marks.
 
 ```php
 array (
@@ -136,7 +143,7 @@ The `Neural` system can produce higher quality voices than the standard voices.
 
 By default, this package will always use the `Standard` voice if available, otherwise it uses the `Neural` voice.
 
-You may use the `voiceType` method if you want to change between `Standard` and `Neural` system:
+You may use the `neuralVoice()` or `standardVoice()` methods as follows:
 
 ```php
 use AhmadMayahi\Polly\Enums\TextType;
@@ -146,18 +153,53 @@ use AhmadMayahi\Polly\Enums\SpeechMark;
 use AhmadMayahi\Polly\Enums\VoiceType;
 
 $speechFile = $speech
-    ->voice(UnitedStates::Joanna)
-    ->outputFormat(OutputFormat::Mp3)
+    ->voiceId(UnitedStates::Joanna)
+    ->asMp3()
     ->text('Hello World')
-    ->textType(TextType::Text)
-    // Use neural system
-    ->voiceType(VoiceType::Neural)
+    ->neuralVoice()
     ->convert();
 ```
 
 > Not all the voices support the `nueral` system, for more information please visit [Voices in Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) page.
 
-## Voices List
+## Voice Methods
+
+PHP Amazon Polly provides a convenient way to get the appropriate voice id.
+
+For example, if you want to use `Joanna` you may use `englishUnitedStatesJoanna()` method as follows:
+
+```php
+use AhmadMayahi\Polly\Enums\TextType;
+use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Enums\OutputFormat;
+use AhmadMayahi\Polly\Enums\SpeechMark;
+use AhmadMayahi\Polly\Enums\VoiceType;
+
+$speechFile = $speech
+    // $neural is optional
+    ->englishUnitedStatesJoanna($neural = true)
+    ->asMp3()
+    ->text('Hello World')
+    ->convert();
+```
+
+Here is the full list of voices with their equivalent method:
+
+| Voice                       | Method                                     |
+|-----------------------------|--------------------------------------------|
+| Arabic (Zeina)              | `arabicZeina()`                            |
+| Chinese (Zhiyu)             | `chineseZhiyu()`                           |
+| Danish (Naja)               | `danishNaja()`                             |
+| Danish (Mads)               | `danishMads()`                             |
+| Dutch (Lotte)               | `dutchLotte()`                             |
+| Dutch (Ruben)               | `dutchLotte()`                             |
+| English Australian (Nicole) | `englishAustralianNicole()`                |
+| English Australian (Olivia) | `englishAustralianOlivia($neural = false)` |
+| English Australian (Russel) | `englishAustralianRussel()`                |
+| English British (Amy)       | `englishBritishAmy($neural = false)`       |
+
+
+## Voice Enums
 
 All the [Amazon Polly Voices](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) are supported:
 
