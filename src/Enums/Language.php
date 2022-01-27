@@ -65,4 +65,9 @@ enum Language
     case SpanishSpain;
 
     case SpanishUnitedStates;
+
+    public static function list(): array
+    {
+        return array_map(fn ($item) => $item->name, self::cases());
+    }
 }

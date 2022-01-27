@@ -8,7 +8,8 @@ final class SpeechFile
 {
     public function __construct(
         public ?SplFileObject $file,
-        public array $speechMarks = []
+        public ?array $speechMarks,
+        public float $took,
     ) {
     }
 }
