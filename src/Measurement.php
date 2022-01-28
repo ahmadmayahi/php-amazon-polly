@@ -8,7 +8,7 @@ class Measurement
 {
     private float $start;
 
-    public static function start(): static
+    public static function new(): static
     {
         return (new self())->begin();
     }

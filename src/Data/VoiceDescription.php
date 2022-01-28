@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly\Data;
 
 use AhmadMayahi\Polly\Contracts\Voice;

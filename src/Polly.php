@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace AhmadMayahi\Polly;
 
 use AhmadMayahi\Polly\Contracts\Voice;
-use AhmadMayahi\Polly\Data\SpeechFile;
+use AhmadMayahi\Polly\Data\Speech;
+use AhmadMayahi\Polly\Data\SpeechMark;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Enums\OutputFormat;
-use AhmadMayahi\Polly\Enums\SpeechMark;
+use AhmadMayahi\Polly\Enums\SpeechMarkType;
 use AhmadMayahi\Polly\Enums\TextType;
 use AhmadMayahi\Polly\Enums\VoiceType;
 use AhmadMayahi\Polly\Exceptions\PollyException;
-use AhmadMayahi\Polly\Utils\AbstractClient;
+use AhmadMayahi\Polly\Support\AbstractClient;
+use AhmadMayahi\Polly\Support\GenerateSpeechMarks;
 use Aws\Result;
-use Generator;
 use GuzzleHttp\Psr7\Stream;
 use Throwable;
 
@@ -85,7 +86,7 @@ use Throwable;
  */
 class Polly extends AbstractClient
 {
-    private ?Voice $voice = null;
+    private ?Voice $voiceId = null;
 
     private OutputFormat $outputFormat = OutputFormat::Mp3;
 
@@ -118,22 +119,17 @@ class Polly extends AbstractClient
         return $this->getStream()->getContents();
     }
 
-    public function convert(string $path = null): SpeechFile
+    public function convert(string $path = null): Speech
     {
         $path ??= $this->fileSystem->getTempFileName();
 
-        $speechMarks = null;
-        $file = null;
+        $speechMarks = $this->speechMarks ?
+            $this->generateSpeechMarks(...$this->speechMarks) : null;
 
-        if ($this->speechMarks) {
-            $speechMarks = iterator_to_array($this->generateSpeechMarks(...$this->speechMarks));
-        }
+        $file = $this->outputFormat === OutputFormat::Json ? null :
+            $this->fileSystem->save($path, $this->getStreamContents());
 
-        if ($this->outputFormat !== OutputFormat::Json) {
-            $file = $this->fileSystem->save($path, $this->getStreamContents());
-        }
-
-        return new SpeechFile(
+        return new Speech(
             $file,
             $speechMarks,
             $this->measurement->finish(),
@@ -168,34 +164,13 @@ class Polly extends AbstractClient
         return $this;
     }
 
-    public function textType(TextType $textType): static
+    /**
+     * @param SpeechMarkType ...$speechMarkType
+     * @return array<SpeechMark>
+     */
+    protected function generateSpeechMarks(SpeechMarkType ...$speechMarkType): array
     {
-        $this->textType = $textType;
-
-        return $this;
-    }
-
-    private function generateSpeechMarks(SpeechMark ...$speechMarkType): Generator
-    {
-        $speechMarksList = (new self($this->config, $this->client, $this->fileSystem, $this->measurement))
-            ->voiceId($this->voice)
-            ->asJson()
-            ->text($this->text)
-            ->textType($this->textType)
-            ->withSpeechMarks(...$speechMarkType)
-            ->getStreamContents();
-
-        $list = array_filter(explode(PHP_EOL, $speechMarksList));
-
-        foreach ($list as $item) {
-            $item = trim($item);
-
-            if (! $item) {
-                continue ;
-            }
-
-            yield json_decode($item);
-        }
+        return (new GenerateSpeechMarks($this))->generate(...$speechMarkType);
     }
 
     public function voiceId(Voice|string $voice): static
@@ -204,21 +179,18 @@ class Polly extends AbstractClient
             $voice = Voices::$voices[ucfirst($voice)];
         }
 
-        $this->voice = $voice;
+        $this->voiceId = $voice;
 
         return $this;
     }
 
     public function text(string $text): static
     {
+        if (str_starts_with($text, '<speak>')) {
+            $this->textType = TextType::Ssml;
+        }
+
         $this->text = $text;
-
-        return $this;
-    }
-
-    public function ssml(): static
-    {
-        $this->textType = TextType::Ssml;
 
         return $this;
     }
@@ -237,7 +209,7 @@ class Polly extends AbstractClient
         return $this;
     }
 
-    public function withSpeechMarks(SpeechMark ...$speechMarkType): static
+    public function withSpeechMarks(SpeechMarkType ...$speechMarkType): static
     {
         $this->speechMarks = $speechMarkType;
 
@@ -250,7 +222,7 @@ class Polly extends AbstractClient
             'Text' => $this->text,
             'OutputFormat' => $this->outputFormat->value,
             'TextType' => $this->textType->value,
-            'VoiceId' => $this->voice->name,
+            'VoiceId' => $this->voiceId->name,
             'Engine' => $this->getEngine(),
         ];
 
@@ -264,29 +236,29 @@ class Polly extends AbstractClient
     protected function getEngine(): string
     {
         if ($this->voiceType == VoiceType::Auto) {
-            if ($this->voice->describe()->standard === true) {
-                return 'standard';
+            if ($this->voiceId->describe()->standard === true) {
+                return VoiceType::Standard->value;
             }
 
-            return 'neural';
+            return VoiceType::Neural->value;
         }
 
-        $voiceDescription = $this->voice->describe();
+        $voiceDescription = $this->voiceId->describe();
 
         if ($voiceDescription->standard && $this->voiceType === VoiceType::Standard) {
-            return 'standard';
+            return VoiceType::Standard->value;
         }
 
         if ($voiceDescription->neural && $this->voiceType === VoiceType::Neural) {
-            return 'neural';
+            return VoiceType::Neural->value;
         }
 
-        throw new PollyException('The given voice type '.$this->voiceType->value.' is not supported for '.$this->voice->value);
+        throw new PollyException('The given voice type ' . $this->voiceType->value . ' is not supported for ' . $this->voiceId->value);
     }
 
     private function ensureItCanSynthesize(): void
     {
-        if (is_null($this->voice)) {
+        if (is_null($this->voiceId)) {
             throw new PollyException('No voice was given!');
         }
 
@@ -300,7 +272,7 @@ class Polly extends AbstractClient
         $recognizedVoice = $this->recognizedVoice($name);
 
         if (! $recognizedVoice) {
-            throw new PollyException('Cannot recognize voice '.$name);
+            throw new PollyException('Cannot recognize voice ' . $name);
         }
 
         $voices = Voices::$voices;
@@ -309,9 +281,9 @@ class Polly extends AbstractClient
             throw new PollyException($recognizedVoice . ' is not a valid voice!');
         }
 
-        $this->voice = $voices[$recognizedVoice];
+        $this->voiceId = $voices[$recognizedVoice];
 
-        if (isset($arguments[0]) && $arguments[0] === true && $this->voice->describe()->neural === true) {
+        if (isset($arguments[0]) && $arguments[0] === true && $this->voiceId->describe()->neural === true) {
             $this->voiceType = VoiceType::Neural;
         }
 
@@ -333,5 +305,20 @@ class Polly extends AbstractClient
         }, $languages));
 
         return $recognizedVoice ? $recognizedVoice[array_key_first($recognizedVoice)] : null;
+    }
+
+    public function getVoiceId(): ?Voice
+    {
+        return $this->voiceId;
+    }
+
+    public function getOutputFormat(): OutputFormat
+    {
+        return $this->outputFormat;
+    }
+
+    public function getText(): string
+    {
+        return $this->text;
     }
 }

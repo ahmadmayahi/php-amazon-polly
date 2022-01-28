@@ -1,35 +1,37 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AhmadMayahi\Polly;
 
-use AhmadMayahi\Polly\Enums\Voices\Arabic;
-use AhmadMayahi\Polly\Enums\Voices\Chinese;
-use AhmadMayahi\Polly\Enums\Voices\Danish;
-use AhmadMayahi\Polly\Enums\Voices\Dutch;
-use AhmadMayahi\Polly\Enums\Voices\English\Australian;
-use AhmadMayahi\Polly\Enums\Voices\English\British;
-use AhmadMayahi\Polly\Enums\Voices\English\NewZealand;
-use AhmadMayahi\Polly\Enums\Voices\English\SouthAfrican;
-use AhmadMayahi\Polly\Enums\Voices\English\UnitedStates;
-use AhmadMayahi\Polly\Enums\Voices\French\Canadian;
-use AhmadMayahi\Polly\Enums\Voices\French\France;
-use AhmadMayahi\Polly\Enums\Voices\German;
-use AhmadMayahi\Polly\Enums\Voices\Hindi;
-use AhmadMayahi\Polly\Enums\Voices\Icelandic;
-use AhmadMayahi\Polly\Enums\Voices\Italian;
-use AhmadMayahi\Polly\Enums\Voices\Japanese;
-use AhmadMayahi\Polly\Enums\Voices\Korean;
-use AhmadMayahi\Polly\Enums\Voices\Norwegian;
-use AhmadMayahi\Polly\Enums\Voices\Polish;
-use AhmadMayahi\Polly\Enums\Voices\Portuguese\Brazilian;
-use AhmadMayahi\Polly\Enums\Voices\Portuguese\Portugal;
-use AhmadMayahi\Polly\Enums\Voices\Romanian;
-use AhmadMayahi\Polly\Enums\Voices\Russian;
-use AhmadMayahi\Polly\Enums\Voices\Spanish\Mexican;
-use AhmadMayahi\Polly\Enums\Voices\Spanish\Spain;
-use AhmadMayahi\Polly\Enums\Voices\Swedish;
-use AhmadMayahi\Polly\Enums\Voices\Turkish;
-use AhmadMayahi\Polly\Enums\Voices\Welsh;
+use AhmadMayahi\Polly\Voices\Arabic;
+use AhmadMayahi\Polly\Voices\Chinese;
+use AhmadMayahi\Polly\Voices\Danish;
+use AhmadMayahi\Polly\Voices\Dutch;
+use AhmadMayahi\Polly\Voices\English\Australian;
+use AhmadMayahi\Polly\Voices\English\British;
+use AhmadMayahi\Polly\Voices\English\NewZealand;
+use AhmadMayahi\Polly\Voices\English\SouthAfrican;
+use AhmadMayahi\Polly\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Voices\French\Canadian;
+use AhmadMayahi\Polly\Voices\French\France;
+use AhmadMayahi\Polly\Voices\German;
+use AhmadMayahi\Polly\Voices\Hindi;
+use AhmadMayahi\Polly\Voices\Icelandic;
+use AhmadMayahi\Polly\Voices\Italian;
+use AhmadMayahi\Polly\Voices\Japanese;
+use AhmadMayahi\Polly\Voices\Korean;
+use AhmadMayahi\Polly\Voices\Norwegian;
+use AhmadMayahi\Polly\Voices\Polish;
+use AhmadMayahi\Polly\Voices\Portuguese\Brazilian;
+use AhmadMayahi\Polly\Voices\Portuguese\Portugal;
+use AhmadMayahi\Polly\Voices\Romanian;
+use AhmadMayahi\Polly\Voices\Russian;
+use AhmadMayahi\Polly\Voices\Spanish\Mexican;
+use AhmadMayahi\Polly\Voices\Spanish\Spain;
+use AhmadMayahi\Polly\Voices\Swedish;
+use AhmadMayahi\Polly\Voices\Turkish;
+use AhmadMayahi\Polly\Voices\Welsh;
 
 class Voices
 {
@@ -68,7 +70,7 @@ class Voices
         'Matthew' => UnitedStates::Matthew,
 
         // Welsh
-        'Geraint' => Enums\Voices\English\Welsh::Geraint,
+        'Geraint' => Voices\English\Welsh::Geraint,
 
         // French (Canadian)
         'Chantal' => Canadian::Chantal,
@@ -97,9 +99,9 @@ class Voices
         'Enrique' => Spain::Enrique,
 
         // Spanish (United States)
-        'Lupe' => Enums\Voices\Spanish\UnitedStates::Lupe,
-        'Penelope' => Enums\Voices\Spanish\UnitedStates::Penelope,
-        'Miguel' => Enums\Voices\Spanish\UnitedStates::Miguel,
+        'Lupe' => Voices\Spanish\UnitedStates::Lupe,
+        'Penelope' => Voices\Spanish\UnitedStates::Penelope,
+        'Miguel' => Voices\Spanish\UnitedStates::Miguel,
 
         // Danish
         'Naja' => Danish::Mads,
