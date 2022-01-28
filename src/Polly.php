@@ -265,7 +265,7 @@ class Polly extends AbstractClient
             return VoiceType::Neural->value;
         }
 
-        throw new PollyException('The given voice type ' . $this->voiceType->value . ' is not supported for ' . $this->voiceId->value);
+        throw new PollyException('The given voice type ' . $this->voiceType->value);
     }
 
     private function ensureItCanSynthesize(): void

@@ -23,7 +23,7 @@ For feedback, please [contact me](https://form.jotform.com/201892949858375).
 - [Installation](#installation)
 - [Usage](#usage)
 - [Speech Marks](#speech-marks)
-- [SSml](#ssml)
+- [SSML](#ssml)
 - [Standard vs Neural Voices](#standard-vs-neural-voices)
 - [Voice Methods](#voice-methods)
 - [Voice Enums](#voice-enums)

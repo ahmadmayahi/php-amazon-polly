@@ -14,32 +14,6 @@ enum Language: string
 
     case Dutch = 'nl-NL';
 
-    case German = 'de-DE';
-
-    case Hindi = 'hi-IN)';
-
-    case Icelandic = 'is-IS';
-
-    case Italian = 'it-IT';
-
-    case Japanese = 'ja-JP';
-
-    case Korean = 'ko-KR';
-
-    case Norwegian = 'nb-NO';
-
-    case Polish = 'pl-PL';
-
-    case Romanian = 'ro-RO';
-
-    case Russian = 'ru-RU';
-
-    case Swedish = 'sv-SE';
-
-    case Turkish = 'tr-TR';
-
-    case Welsh = 'cy-GB';
-
     case EnglishAustralian = 'en-AU';
 
     case EnglishBritish = 'en-GB';
@@ -58,15 +32,41 @@ enum Language: string
 
     case FrenchCanadian = 'fr-CA';
 
+    case German = 'de-DE';
+
+    case Hindi = 'hi-IN';
+
+    case Icelandic = 'is-IS';
+
+    case Italian = 'it-IT';
+
+    case Japanese = 'ja-JP';
+
+    case Korean = 'ko-KR';
+
+    case Norwegian = 'nb-NO';
+
+    case Polish = 'pl-PL';
+
     case PortugueseBrazilian = 'pt-BR';
 
     case PortuguesePortugal = 'pt-PT';
 
-    case SpanishMexican = 'es-MX';
+    case Romanian = 'ro-RO';
+
+    case Russian = 'ru-RU';
 
     case SpanishSpain = 'es-ES';
 
+    case SpanishMexican = 'es-MX';
+
     case SpanishUnitedStates = 'es-US';
+
+    case Swedish = 'sv-SE';
+
+    case Turkish = 'tr-TR';
+
+    case Welsh = 'cy-GB';
 
     public static function list(): array
     {
