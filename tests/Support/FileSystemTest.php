@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace AhmadMayahi\Polly\Tests\Support;
 
-use AhmadMayahi\Polly\Tests\AbstractTest;
 use AhmadMayahi\Polly\Support\FileSystem;
+use AhmadMayahi\Polly\Tests\AbstractTest;
 
 class FileSystemTest extends AbstractTest
 {
