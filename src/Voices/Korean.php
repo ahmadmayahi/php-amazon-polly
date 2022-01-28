@@ -16,7 +16,7 @@ enum Korean implements Voice
 
     public function describe(): VoiceDescription
     {
-        return VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: false);
+        return VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true);
     }
 
     public function language(): Language

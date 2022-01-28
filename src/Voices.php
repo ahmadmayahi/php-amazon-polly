@@ -23,11 +23,11 @@ use AhmadMayahi\Polly\Voices\Japanese;
 use AhmadMayahi\Polly\Voices\Korean;
 use AhmadMayahi\Polly\Voices\Norwegian;
 use AhmadMayahi\Polly\Voices\Polish;
-use AhmadMayahi\Polly\Voices\Portuguese\Brazilian;
+use AhmadMayahi\Polly\Voices\Portuguese\Brazil;
 use AhmadMayahi\Polly\Voices\Portuguese\Portugal;
 use AhmadMayahi\Polly\Voices\Romanian;
 use AhmadMayahi\Polly\Voices\Russian;
-use AhmadMayahi\Polly\Voices\Spanish\Mexican;
+use AhmadMayahi\Polly\Voices\Spanish\Mexico;
 use AhmadMayahi\Polly\Voices\Spanish\Spain;
 use AhmadMayahi\Polly\Voices\Swedish;
 use AhmadMayahi\Polly\Voices\Turkish;
@@ -82,16 +82,16 @@ class Voices
         'Mathieu' => France::Mathieu,
 
         // Portuguese (Brazilian)
-        'Camila' => Brazilian::Camila,
-        'Vitoria' => Brazilian::Vitoria,
-        'Ricardo' => Brazilian::Ricardo,
+        'Camila' => Brazil::Camila,
+        'Vitoria' => Brazil::Vitoria,
+        'Ricardo' => Brazil::Ricardo,
 
         // Portuguese (Portugal)
         'Ines' => Portugal::Ines,
         'Cristiano' => Portugal::Cristiano,
 
         // Spanish (Mexican)
-        'Mia' => Mexican::Mia,
+        'Mia' => Mexico::Mia,
 
         // Spanish (Spain)
         'Conchita' => Spain::Conchita,

@@ -23,6 +23,19 @@ use AhmadMayahi\Polly\Voices\German;
 use AhmadMayahi\Polly\Voices\Hindi;
 use AhmadMayahi\Polly\Voices\Icelandic;
 use AhmadMayahi\Polly\Voices\Italian;
+use AhmadMayahi\Polly\Voices\Japanese;
+use AhmadMayahi\Polly\Voices\Korean;
+use AhmadMayahi\Polly\Voices\Norwegian;
+use AhmadMayahi\Polly\Voices\Polish;
+use AhmadMayahi\Polly\Voices\Portuguese\Brazil;
+use AhmadMayahi\Polly\Voices\Portuguese\Portugal;
+use AhmadMayahi\Polly\Voices\Romanian;
+use AhmadMayahi\Polly\Voices\Russian;
+use AhmadMayahi\Polly\Voices\Spanish\Mexico;
+use AhmadMayahi\Polly\Voices\Spanish\Spain;
+use AhmadMayahi\Polly\Voices\Spanish\UnitedStates as UnitedStatesSpanish;
+use AhmadMayahi\Polly\Voices\Swedish;
+use AhmadMayahi\Polly\Voices\Turkish;
 
 class VoicesTest extends AbstractTest
 {
@@ -30,7 +43,7 @@ class VoicesTest extends AbstractTest
      * @test
      * @dataProvider provider
      */
-    public function tryVoiceId(Language $language, Voice $voiceId, Gender $gender, bool $neural = false, bool $standard = true, bool $bilingual = false, bool $newsCaster = false, bool $child = false)
+    public function voice(Language $language, Voice $voiceId, Gender $gender, bool $neural = false, bool $standard = true, bool $bilingual = false, bool $newsCaster = false, bool $child = false)
     {
         $this->assertEquals($language, $voiceId->language());
 
@@ -172,12 +185,60 @@ class VoicesTest extends AbstractTest
 
             // Italian
             [Language::Italian, Italian::Carla, Gender::Female],
-            [Language::Italian, Italian::Bianca, Gender::Female, true, true],
+            [Language::Italian, Italian::Bianca, Gender::Female, true],
             [Language::Italian, Italian::Giorgio, Gender::Male],
 
 
             // Japanese
+            [Language::Japanese, Japanese::Mizuki, Gender::Female],
+            [Language::Japanese, Japanese::Takumi, Gender::Male, true],
 
+            // Korean
+            [Language::Korean, Korean::Seoyeon, Gender::Female, true],
+
+            // Norwegian
+            [Language::Norwegian, Norwegian::Liv, Gender::Female],
+
+            // Polish
+            [Language::Polish, Polish::Ewa, Gender::Female],
+            [Language::Polish, Polish::Maja, Gender::Female],
+            [Language::Polish, Polish::Jacek, Gender::Male],
+            [Language::Polish, Polish::Jan, Gender::Male],
+
+            // Portuguese (Brazilian)
+            [Language::PortugueseBrazilian, Brazil::Camila, Gender::Female, true],
+            [Language::PortugueseBrazilian, Brazil::Vitoria, Gender::Female],
+            [Language::PortugueseBrazilian, Brazil::Ricardo, Gender::Male],
+
+            // Portuguese (Portugal)
+            [Language::PortuguesePortugal, Portugal::Ines, Gender::Female],
+            [Language::PortuguesePortugal, Portugal::Cristiano, Gender::Male],
+
+            // Romanian
+            [Language::Romanian, Romanian::Carmen, Gender::Female],
+
+            // Russian
+            [Language::Russian, Russian::Tatyana, Gender::Female],
+            [Language::Russian, Russian::Maxim, Gender::Male],
+
+            // Spanish (Spain)
+            [Language::SpanishSpain, Spain::Conchita, Gender::Female],
+            [Language::SpanishSpain, Spain::Lucia, Gender::Female, true],
+            [Language::SpanishSpain, Spain::Enrique, Gender::Male],
+
+            // Spanish (Mexican)
+            [Language::SpanishMexican, Mexico::Mia, Gender::Female],
+
+            // Spanish (United States)
+            [Language::SpanishUnitedStates, UnitedStatesSpanish::Lupe, Gender::Female, true, true, false, true],
+            [Language::SpanishUnitedStates, UnitedStatesSpanish::Penelope, Gender::Female],
+            [Language::SpanishUnitedStates, UnitedStatesSpanish::Miguel, Gender::Male],
+
+            // Swedish
+            [Language::Swedish, Swedish::Astrid, Gender::Female],
+
+            // Turkish
+            [Language::Turkish, Turkish::Filiz, Gender::Female],
         ];
     }
 }
