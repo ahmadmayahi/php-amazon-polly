@@ -13,7 +13,7 @@ use AhmadMayahi\Polly\Voices\English\British;
 use AhmadMayahi\Polly\Voices\English\NewZealand;
 use AhmadMayahi\Polly\Voices\English\SouthAfrican;
 use AhmadMayahi\Polly\Voices\English\UnitedStates;
-use AhmadMayahi\Polly\Voices\French\Canadian;
+use AhmadMayahi\Polly\Voices\French\Canada;
 use AhmadMayahi\Polly\Voices\French\France;
 use AhmadMayahi\Polly\Voices\German;
 use AhmadMayahi\Polly\Voices\Hindi;
@@ -73,8 +73,8 @@ class Voices
         'Geraint' => Voices\English\Welsh::Geraint,
 
         // French (Canadian)
-        'Chantal' => Canadian::Chantal,
-        'Gabrielle' => Canadian::Gabrielle,
+        'Chantal' => Canada::Chantal,
+        'Gabrielle' => Canada::Gabrielle,
 
         // French (French)
         'Celine' => France::Celine,

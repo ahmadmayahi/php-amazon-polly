@@ -4,69 +4,69 @@ declare(strict_types=1);
 
 namespace AhmadMayahi\Polly\Enums;
 
-enum Language
+enum Language: string
 {
-    case Arabic;
+    case Arabic = 'arb';
 
-    case Chinese;
+    case Chinese = 'cmn-CN';
 
-    case Danish;
+    case Danish = 'da-DK';
 
-    case Dutch;
+    case Dutch = 'nl-NL';
 
-    case German;
+    case German = 'de-DE';
 
-    case Hindi;
+    case Hindi = 'hi-IN)';
 
-    case Icelandic;
+    case Icelandic = 'is-IS';
 
-    case Italian;
+    case Italian = 'it-IT';
 
-    case Japanese;
+    case Japanese = 'ja-JP';
 
-    case Korean;
+    case Korean = 'ko-KR';
 
-    case Norwegian;
+    case Norwegian = 'nb-NO';
 
-    case Polish;
+    case Polish = 'pl-PL';
 
-    case Romanian;
+    case Romanian = 'ro-RO';
 
-    case Russian;
+    case Russian = 'ru-RU';
 
-    case Swedish;
+    case Swedish = 'sv-SE';
 
-    case Turkish;
+    case Turkish = 'tr-TR';
 
-    case Welsh;
+    case Welsh = 'cy-GB';
 
-    case EnglishAustralian;
+    case EnglishAustralian = 'en-AU';
 
-    case EnglishBritish;
+    case EnglishBritish = 'en-GB';
 
-    case EnglishIndian;
+    case EnglishIndian = 'en-IN';
 
-    case EnglishNewZealand;
+    case EnglishNewZealand = 'en-NZ';
 
-    case EnglishSouthAfrican;
+    case EnglishSouthAfrican = 'en-ZA';
 
-    case EnglishUnitedStates;
+    case EnglishUnitedStates = 'en-US';
 
-    case EnglishWelsh;
+    case EnglishWelsh = 'en-GB-WLS';
 
-    case FrenchFrance;
+    case FrenchFrance = 'fr-FR';
 
-    case FrenchCanadian;
+    case FrenchCanadian = 'fr-CA';
 
-    case PortugueseBrazilian;
+    case PortugueseBrazilian = 'pt-BR';
 
-    case PortuguesePortugal;
+    case PortuguesePortugal = 'pt-PT';
 
-    case SpanishMexican;
+    case SpanishMexican = 'es-MX';
 
-    case SpanishSpain;
+    case SpanishSpain = 'es-ES';
 
-    case SpanishUnitedStates;
+    case SpanishUnitedStates = 'es-US';
 
     public static function list(): array
     {

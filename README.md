@@ -236,53 +236,59 @@ As you might have noticed, `Joanna` accepts an optional param `$neural`, set it 
 
 Here is the full list of voices with their equivalent method:
 
- | Voice                       | Method                                     |
-|-----------------------------|--------------------------------------------|
-| Arabic (Zeina)              | `arabicZeina()`                            |
-| Chinese (Zhiyu)             | `chineseZhiyu()`                           |
-| Danish (Naja)               | `danishNaja()`                             |
-| Danish (Mads)               | `danishMads()`                             |
-| Dutch (Lotte)               | `dutchLotte()`                             |
-| Dutch (Ruben)               | `dutchRuben()`                             |
-| English Australian (Nicole) | `englishAustralianNicole()`                |
-| English Australian (Olivia) | `englishAustralianOlivia($neural = false)` |
-| English Australian (Russel) | `englishAustralianRussel()`                |
-| English British (Amy)       | `englishBritishAmy($neural = false)`       |
+ | Voice                          | Method                                     |
+|--------------------------------|--------------------------------------------|
+| Arabic (Zeina)                 | `arabicZeina()`                            |
+| Chinese (Zhiyu)                | `chineseZhiyu()`                           |
+| Danish (Naja)                  | `danishNaja()`                             |
+| Danish (Mads)                  | `danishMads()`                             |
+| Dutch (Lotte)                  | `dutchLotte()`                             |
+| Dutch (Ruben)                  | `dutchRuben()`                             |
+| English Australian (Nicole)    | `englishAustralianNicole()`                |
+| English Australian (Olivia)    | `englishAustralianOlivia($neural = false)` |
+| English Australian (Russel)    | `englishAustralianRussel()`                |
+| English British (Amy)          | `englishBritishAmy($neural = false)`       |
+| English British (Brian)        | `englishBritishEmma($neural = false)`      |
+| English Indian (Aditi)         | `englishIndianAditi()`                     |
+| English Indian (Raveena)       | `englishIndianRaveena()`                   |
+| English New Zealand (Aria)     | `englishNewZealandAria()`                  |
+| English South African (Ayanda) | `englishSouthAfricanAyanda()`              |
+| English United States (Ivy)    | `englishUnitedStatesIvy($neural = false)`  |
 
 ## Voice Enums
 
 All the [Amazon Polly Voices](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html) are supported as enums:
 
-| Language                | Enum                                                  |
-|-------------------------|-------------------------------------------------------|
-| Arabic                  | `AhmadMayahi\Polly\Enums\Voices\Arabic`               |
-| Chinese, Mandarin       | `AhmadMayahi\Polly\Enums\Voices\Chinese`              |
-| Danish                  | `AhmadMayahi\Polly\Enums\Voices\Danish`               |
-| Dutch                   | `AhmadMayahi\Polly\Enums\Voices\Dutch`                |
-| English (Australian)    | `AhmadMayahi\Polly\Enums\Voices\English\Australian`   |
-| English (British)       | `AhmadMayahi\Polly\Enums\Voices\English\British`      |
-| English (Indian)        | `AhmadMayahi\Polly\Enums\Voices\English\Indian`       |
-| English (New Zealand)   | `AhmadMayahi\Polly\Enums\Voices\English\NewZealand`   |
-| English (South African) | `AhmadMayahi\Polly\Enums\Voices\English\SouthAfrican` |
-| English (United States) | `AhmadMayahi\Polly\Enums\Voices\English\UnitedStates` |
-| French                  | `AhmadMayahi\Polly\Enums\Voices\French\French`        |
-| French (Canadian)       | `AhmadMayahi\Polly\Enums\Voices\French\Canadian`      |
-| German                  | `AhmadMayahi\Polly\Enums\Voices\German`               |
-| Hindi                   | `AhmadMayahi\Polly\Enums\Voices\Hindi`                |
-| Icelandic               | `AhmadMayahi\Polly\Enums\Voices\Icelandic`            |
-| Italian                 | `AhmadMayahi\Polly\Enums\Voices\Italian`              |
-| Japanese                | `AhmadMayahi\Polly\Enums\Voices\Japanese`             |
-| Korean                  | `AhmadMayahi\Polly\Enums\Voices\Korean`               |
-| Portuguese (Brazilian)  | `AhmadMayahi\Polly\Enums\Voices\Portuguese\Brazilian` |
-| Portuguese (Portugal)   | `AhmadMayahi\Polly\Enums\Voices\Portuguese\Portugal`  |
-| Romanian                | `AhmadMayahi\Polly\Enums\Voices\Romanian`             |
-| Russian                 | `AhmadMayahi\Polly\Enums\Voices\Russian`              |
-| Spanish (Mexican)       | `AhmadMayahi\Polly\Enums\Voices\Spanish\Mexican`      |
-| Spanish (Spain)         | `AhmadMayahi\Polly\Enums\Voices\Spanish\Spain`        |
-| Spanish (United States) | `AhmadMayahi\Polly\Enums\Voices\Spanish\UnitedStates` |
-| Swedish                 | `AhmadMayahi\Polly\Enums\Voices\Swedish`              |
-| Turkish                 | `AhmadMayahi\Polly\Enums\Voices\Turkish`              |
-| Welsh                   | `AhmadMayahi\Polly\Enums\Voices\Welsh`                |
+| Language                | Enum                                            |
+|-------------------------|-------------------------------------------------|
+| Arabic                  | `AhmadMayahi\Polly\Voices\Arabic`               |
+| Chinese, Mandarin       | `AhmadMayahi\Polly\Voices\Chinese`              |
+| Danish                  | `AhmadMayahi\Polly\Voices\Danish`               |
+| Dutch                   | `AhmadMayahi\Polly\Voices\Dutch`                |
+| English (Australian)    | `AhmadMayahi\Polly\Voices\English\Australian`   |
+| English (British)       | `AhmadMayahi\Polly\Voices\English\British`      |
+| English (Indian)        | `AhmadMayahi\Polly\Voices\English\Indian`       |
+| English (New Zealand)   | `AhmadMayahi\Polly\Voices\English\NewZealand`   |
+| English (South African) | `AhmadMayahi\Polly\Voices\English\SouthAfrican` |
+| English (United States) | `AhmadMayahi\Polly\Voices\English\UnitedStates` |
+| French                  | `AhmadMayahi\Polly\Voices\French\French`        |
+| French (Canadian)       | `AhmadMayahi\Polly\Voices\French\Canadian`      |
+| German                  | `AhmadMayahi\Polly\Voices\German`               |
+| Hindi                   | `AhmadMayahi\Polly\Voices\Hindi`                |
+| Icelandic               | `AhmadMayahi\Polly\Voices\Icelandic`            |
+| Italian                 | `AhmadMayahi\Polly\Voices\Italian`              |
+| Japanese                | `AhmadMayahi\Polly\Voices\Japanese`             |
+| Korean                  | `AhmadMayahi\Polly\Voices\Korean`               |
+| Portuguese (Brazil)     | `AhmadMayahi\Polly\Voices\Portuguese\Brazil`    |
+| Portuguese (Portugal)   | `AhmadMayahi\Polly\Voices\Portuguese\Portugal`  |
+| Romanian                | `AhmadMayahi\Polly\Voices\Romanian`             |
+| Russian                 | `AhmadMayahi\Polly\Voices\Russian`              |
+| Spanish (Mexican)       | `AhmadMayahi\Polly\Voices\Spanish\Mexico`       |
+| Spanish (Spain)         | `AhmadMayahi\Polly\Voices\Spanish\Spain`        |
+| Spanish (United States) | `AhmadMayahi\Polly\Voices\Spanish\UnitedStates` |
+| Swedish                 | `AhmadMayahi\Polly\Voices\Swedish`              |
+| Turkish                 | `AhmadMayahi\Polly\Voices\Turkish`              |
+| Welsh                   | `AhmadMayahi\Polly\Voices\Welsh`                |
 
 For example, if you want to get `Nicole` from English (Australian):
 

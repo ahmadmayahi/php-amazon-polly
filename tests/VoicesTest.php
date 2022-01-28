@@ -17,7 +17,7 @@ use AhmadMayahi\Polly\Voices\English\NewZealand;
 use AhmadMayahi\Polly\Voices\English\SouthAfrican;
 use AhmadMayahi\Polly\Voices\English\UnitedStates;
 use AhmadMayahi\Polly\Voices\English\Welsh;
-use AhmadMayahi\Polly\Voices\French\Canadian;
+use AhmadMayahi\Polly\Voices\French\Canada;
 use AhmadMayahi\Polly\Voices\French\France;
 use AhmadMayahi\Polly\Voices\German;
 use AhmadMayahi\Polly\Voices\Hindi;
@@ -161,8 +161,8 @@ class VoicesTest extends AbstractTest
             [Language::FrenchFrance, France::Mathieu, Gender::Male],
 
             // French (Canadian)
-            [Language::FrenchCanadian, Canadian::Chantal, Gender::Female],
-            [Language::FrenchCanadian, Canadian::Gabrielle, Gender::Female, true, false],
+            [Language::FrenchCanadian, Canada::Chantal, Gender::Female],
+            [Language::FrenchCanadian, Canada::Gabrielle, Gender::Female, true, false],
 
             // German
             [Language::German, German::Marlene, Gender::Female],

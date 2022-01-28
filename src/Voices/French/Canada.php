@@ -10,7 +10,7 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Canadian implements Voice
+enum Canada implements Voice
 {
     case Chantal;
 

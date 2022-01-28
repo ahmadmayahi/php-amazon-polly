@@ -230,14 +230,15 @@ class Polly extends AbstractClient
     protected function speechConfig(): array
     {
         $list = [
+            'LanguageCode' => $this->voiceId->language()->value,
+            'VoiceId' => $this->voiceId->name,
             'Text' => $this->text,
             'OutputFormat' => $this->outputFormat->value,
             'TextType' => $this->textType->value,
-            'VoiceId' => $this->voiceId->name,
             'Engine' => $this->getEngine(),
         ];
 
-        if ($this->speechMarks && $this->outputFormat === OutputFormat::Json) {
+        if ($this->outputFormat === OutputFormat::Json && $this->speechMarks) {
             $list['SpeechMarkTypes'] = array_map(fn ($item) => $item->value, $this->speechMarks);
         }
 
