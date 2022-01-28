@@ -90,6 +90,24 @@ The `voiceId()` also accepts a string:
 voiceId('Joanna')
 ```
 
+You can also specify the output format as an `enum` or a a `string`:
+
+```php
+use AhmadMayahi\Polly\Enums\OutputFormat;
+
+$speechFile = $speech
+    ->voiceId(UnitedStates::Joanna)
+   
+    ->outputFormat(OutputFormat::Ogg)
+    
+    // Or as a string
+    ->outputFormat('ogg')
+    
+    ->text('Hello World')
+ 
+    ->convert();
+```
+
 ## Speech Marks
 
 You may also request the [Speech Mark Types](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) as follows:
