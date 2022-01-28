@@ -25,7 +25,7 @@ For feedback, please [contact me](https://form.jotform.com/201892949858375).
 - [Speech Marks](#speech-marks)
 - [SSML](#ssml)
 - [Standard vs Neural Voices](#standard-vs-neural-voices)
-- [Voice Methods](#voice-methods)
+- [Convenient Voice Methods](#convenient-voice-methods)
 - [Voice Enums](#voice-enums)
   - [Describe Voice](#describe-voice)
 
