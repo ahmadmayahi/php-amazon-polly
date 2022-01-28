@@ -136,6 +136,17 @@ class Polly extends AbstractClient
         );
     }
 
+    public function outputFormat(OutputFormat|string $format): static
+    {
+        if (is_string($format)) {
+            $format = $this->getOutputFormatFromString($format);
+        }
+
+        $this->outputFormat = $format;
+
+        return $this;
+    }
+
     public function asMp3(): static
     {
         $this->outputFormat = OutputFormat::Mp3;
@@ -320,5 +331,24 @@ class Polly extends AbstractClient
     public function getText(): string
     {
         return $this->text;
+    }
+
+    private function getOutputFormatFromString(string $format)
+    {
+        $format = strtolower($format);
+
+        if ($format === 'mp3') {
+            return OutputFormat::Mp3;
+        }
+
+        if ($format == 'ogg' || $format == 'ogg_vorbis') {
+            return OutputFormat::Ogg;
+        }
+
+        if ($format == 'json') {
+            return OutputFormat::Json;
+        }
+
+        throw new PollyException('Invalud output format '.$format);
     }
 }
