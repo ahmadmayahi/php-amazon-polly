@@ -102,11 +102,7 @@ class Polly extends AbstractClient
     {
         $this->ensureItCanSynthesize();
 
-        try {
-            return $this->client()->synthesizeSpeech($this->speechConfig());
-        } catch (Throwable $exception) {
-            throw new PollyException($exception->getMessage());
-        }
+        return $this->client()->synthesizeSpeech($this->speechConfig());
     }
 
     public function getStream(): Stream
@@ -149,30 +145,22 @@ class Polly extends AbstractClient
 
     public function asMp3(): static
     {
-        $this->outputFormat = OutputFormat::Mp3;
-
-        return $this;
+        return $this->outputFormat(OutputFormat::Mp3);
     }
 
     public function asOgg(): static
     {
-        $this->outputFormat = OutputFormat::Ogg;
-
-        return $this;
+        return $this->outputFormat(OutputFormat::Ogg);
     }
 
     public function asPcm(): static
     {
-        $this->outputFormat = OutputFormat::Pcm;
-
-        return $this;
+        return $this->outputFormat(OutputFormat::Pcm);
     }
 
     public function asJson(): static
     {
-        $this->outputFormat = OutputFormat::Json;
-
-        return $this;
+        return $this->outputFormat(OutputFormat::Json);
     }
 
     /**

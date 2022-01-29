@@ -24,31 +24,51 @@ final class PollyTest extends AbstractTest
     }
 
     /** @test */
-    public function it_should_get_stream_contents(): void
+    public function it_should_get_stream_contents_as_mp3(): void
     {
-        $stream = $this->createMock(Stream::class);
-        $stream
-            ->expects($this->once())
-            ->method('getContents')
-            ->willReturn($this->voiceFileContents(UnitedStates::Joanna));
-
-        $result = new Result([
-            'AudioStream' => $stream,
-        ]);
-
-        $client = $this->createMock(PollyClient::class);
-        $client
-            ->expects($this->once())
-            ->method('__call')
-            ->willReturn($result);
-
-        $fileSystem = $this->createMock(FileSystem::class);
-
-        $polly = new Polly($this->getConfig(), $client, $fileSystem, new Measurement());
+        $polly = $this->createPolly();
 
         $polly
             ->voiceId(UnitedStates::Ivy)
             ->asMp3()
+            ->neuralVoice()
+            ->text('Hello World')
+            ->getStreamContents();
+    }
+
+    /** @test */
+    public function it_should_get_stream_contents_as_ogg(): void
+    {
+        $polly = $this->createPolly();
+
+        $polly
+            ->voiceId(UnitedStates::Ivy)
+            ->asOgg()
+            ->standardVoice()
+            ->text('Hello World')
+            ->getStreamContents();
+    }
+
+    /** @test */
+    public function it_should_get_stream_contents_as_pcm(): void
+    {
+        $polly = $this->createPolly();
+
+        $polly
+            ->voiceId(UnitedStates::Ivy)
+            ->asPcm()
+            ->text('Hello World')
+            ->getStreamContents();
+    }
+
+    /** @test */
+    public function it_should_get_stream_contents_as_json(): void
+    {
+        $polly = $this->createPolly();
+
+        $polly
+            ->voiceId(UnitedStates::Ivy)
+            ->asJson()
             ->text('Hello World')
             ->getStreamContents();
     }
@@ -118,5 +138,28 @@ final class PollyTest extends AbstractTest
         ], $speechFile->speechMarks);
 
         $this->assertSame($joannaSpl, $speechFile->file);
+    }
+
+    private function createPolly(): Polly
+    {
+        $stream = $this->createMock(Stream::class);
+        $stream
+            ->expects($this->once())
+            ->method('getContents')
+            ->willReturn($this->voiceFileContents(UnitedStates::Joanna));
+
+        $result = new Result([
+            'AudioStream' => $stream,
+        ]);
+
+        $client = $this->createMock(PollyClient::class);
+        $client
+            ->expects($this->once())
+            ->method('__call')
+            ->willReturn($result);
+
+        $fileSystem = $this->createMock(FileSystem::class);
+
+        return new Polly($this->getConfig(), $client, $fileSystem, new Measurement());
     }
 }
