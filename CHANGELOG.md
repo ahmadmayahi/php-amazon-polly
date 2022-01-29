@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## v1.0 - 2022-01-29
+
+- initial release
+
 ## 0.3 - 2021-12-30
 
 - Bug fixes.
