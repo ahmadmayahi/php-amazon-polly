@@ -17,7 +17,6 @@ use AhmadMayahi\Polly\Support\AbstractClient;
 use AhmadMayahi\Polly\Support\GenerateSpeechMarks;
 use Aws\Result;
 use GuzzleHttp\Psr7\Stream;
-use Throwable;
 
 /**
  * @method self arabicZeina()
