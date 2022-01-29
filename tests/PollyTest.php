@@ -15,6 +15,15 @@ use GuzzleHttp\Psr7\Stream;
 final class PollyTest extends AbstractTest
 {
     /** @test */
+    public function can_initiate_polly_client(): void
+    {
+        $this->assertInstanceOf(
+            Polly::class,
+            Polly::init($this->getConfig(), $this->createMock(PollyClient::class), new Measurement())
+        );
+    }
+
+    /** @test */
     public function it_should_get_stream_contents(): void
     {
         $stream = $this->createMock(Stream::class);
