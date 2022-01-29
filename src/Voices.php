@@ -104,7 +104,7 @@ class Voices
         'Miguel' => Voices\Spanish\UnitedStates::Miguel,
 
         // Danish
-        'Naja' => Danish::Mads,
+        'Naja' => Danish::Naja,
         'Mads' => Danish::Mads,
 
         // Dutch

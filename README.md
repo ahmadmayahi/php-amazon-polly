@@ -98,6 +98,7 @@ use AhmadMayahi\Polly\Enums\OutputFormat;
 $speechFile = $speech
     ->voiceId(UnitedStates::Joanna)
    
+    // As enum
     ->outputFormat(OutputFormat::Ogg)
     
     // Or as a string
@@ -236,24 +237,33 @@ As you might have noticed, `Joanna` accepts an optional param `$neural`, set it 
 
 Here is the full list of voices with their equivalent method:
 
- | Voice                          | Method                                     |
-|--------------------------------|--------------------------------------------|
-| Arabic (Zeina)                 | `arabicZeina()`                            |
-| Chinese (Zhiyu)                | `chineseZhiyu()`                           |
-| Danish (Naja)                  | `danishNaja()`                             |
-| Danish (Mads)                  | `danishMads()`                             |
-| Dutch (Lotte)                  | `dutchLotte()`                             |
-| Dutch (Ruben)                  | `dutchRuben()`                             |
-| English Australian (Nicole)    | `englishAustralianNicole()`                |
-| English Australian (Olivia)    | `englishAustralianOlivia($neural = false)` |
-| English Australian (Russel)    | `englishAustralianRussel()`                |
-| English British (Amy)          | `englishBritishAmy($neural = false)`       |
-| English British (Brian)        | `englishBritishEmma($neural = false)`      |
-| English Indian (Aditi)         | `englishIndianAditi()`                     |
-| English Indian (Raveena)       | `englishIndianRaveena()`                   |
-| English New Zealand (Aria)     | `englishNewZealandAria()`                  |
-| English South African (Ayanda) | `englishSouthAfricanAyanda()`              |
-| English United States (Ivy)    | `englishUnitedStatesIvy($neural = false)`  |
+ | Voice                            | Method                                         |
+|----------------------------------|------------------------------------------------|
+| Arabic (Zeina)                   | `arabicZeina()`                                |
+| Chinese (Zhiyu)                  | `chineseZhiyu()`                               |
+| Danish (Naja)                    | `danishNaja()`                                 |
+| Danish (Mads)                    | `danishMads()`                                 |
+| Dutch (Lotte)                    | `dutchLotte()`                                 |
+| Dutch (Ruben)                    | `dutchRuben()`                                 |
+| English Australian (Nicole)      | `englishAustralianNicole()`                    |
+| English Australian (Olivia)      | `englishAustralianOlivia($neural = false)`     |
+| English Australian (Russel)      | `englishAustralianRussel()`                    |
+| English British (Amy)            | `englishBritishAmy($neural = false)`           |
+| English British (Brian)          | `englishBritishEmma($neural = false)`          |
+| English Indian (Aditi)           | `englishIndianAditi()`                         |
+| English Indian (Raveena)         | `englishIndianRaveena()`                       |
+| English New Zealand (Aria)       | `englishNewZealandAria()`                      |
+| English South African (Ayanda)   | `englishSouthAfricanAyanda()`                  |
+| English United States (Ivy)      | `englishUnitedStatesIvy($neural = false)`      |
+| English United States (Joanna)   | `englishUnitedStatesJoanna($neural = false)`   |
+| English United States (Kendra)   | `englishUnitedStatesKendra($neural = false)`   |
+| English United States (Kimberly) | `englishUnitedStatesKimberly($neural = false)` |
+| English United States (Salli)    | `englishUnitedStatesSalli($neural = false)`    |
+| English United States (Joey)     | `englishUnitedStatesJoey($neural = false)`     |
+| English United States (Justin)   | `englishUnitedStatesJustin($neural = false)`   |
+| English United States (Kevin)    | `englishUnitedStatesKevin($neural = false)`    |
+| English United States (Matthew)  | `englishUnitedStatesMatthew($neural = false)`  |
+| English Welsh (Geraint)          | `englishWelsh()`                               |
 
 ## Voice Enums
 
