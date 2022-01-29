@@ -3,7 +3,7 @@
   <img style="width:300px" src="art/logo.png" alt="PHP Google Vision" />
 
 <hr>
-
+[![The Latest Version on Packagist](https://img.shields.io/packagist/v/ahmadmayahi/php-amazon-polly.svg)](https://packagist.org/packages/ahmadmayahi/php-amazon-polly)
 [![Tests](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml/badge.svg)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/run-tests.yml)
 [![Check & fix styling](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/ahmadmayahi/php-amazon-polly/actions/workflows/php-cs-fixer.yml)
 [![Test Coverage](https://codecov.io/gh/ahmadmayahi/php-amazon-polly/branch/main/graph/badge.svg?token=hayMyn8tLI)](https://codecov.io/gh/ahmadmayahi/php-amazon-polly)
@@ -90,7 +90,7 @@ The `voiceId()` also accepts a string:
 voiceId('Joanna')
 ```
 
-You can also specify the output format as an `enum` or a a `string`:
+Alternatively, you may also specify the output format as an `enum` or a `string`:
 
 ```php
 use AhmadMayahi\Polly\Enums\OutputFormat;
@@ -123,7 +123,7 @@ $speechFile = $speech
     ->convert();
 ```
 
-> The `speechMarks()` method issues another request to get the speech marks.
+> The `speechMarks()` method sends another request to get the speech marks.
 
 ```php
 Array
