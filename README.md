@@ -44,22 +44,22 @@ First you need to configure the client:
 
 ```php
 use AhmadMayahi\Polly\Config;
-use AhmadMayahi\Polly\Polly;
 
 $config = (new Config())
     ->setKey('AWS_KEY')
     ->setSecret('AWS_SECRET')
     ->setRegion('eu-west-1'); // default is: us-east-1
-
-$polly = Polly::init($config);
 ```
 
 Save as MP3 file:
 
 ```php
 use AhmadMayahi\Polly\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Polly;
 
-$speechFile = $speech
+$polly = Polly::init($config);
+
+$speechFile = $polly
     // Desired voice
     ->voiceId(UnitedStates::Joanna)
     
@@ -95,8 +95,11 @@ Alternatively, you may also specify the output format as an `enum` or a `string`
 
 ```php
 use AhmadMayahi\Polly\Enums\OutputFormat;
+use AhmadMayahi\Polly\Polly;
 
-$speechFile = $speech
+$polly = Polly::init($config);
+
+$speechFile = $polly
     ->voiceId(UnitedStates::Joanna)
    
     // As enum
@@ -115,16 +118,20 @@ $speechFile = $speech
 You may also request the [Speech Mark Types](https://docs.aws.amazon.com/polly/latest/dg/speechmarks.html) as follows:
 
 ```php
-use AhmadMayahi\Polly\Enums\SpeechMarkType;use AhmadMayahi\Polly\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Enums\SpeechMarkType;
+use AhmadMayahi\Polly\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Polly;
 
-$speechFile = $speech
+$polly = Polly::init($config);
+
+$speechFile = $polly
     ->voiceId(UnitedStates::Joanna)
     ->text('Hello World')
     ->withSpeechMarks(SpeechMarkType::Word, SpeechMarkType::Sentence)
     ->convert();
 ```
 
-> The `speechMarks()` method sends another request to get the speech marks.
+Unfortunately, Amazon Polly demands sending another request to get the speech marks, however this package uses [PHP Fibers](https://www.php.net/manual/en/language.fibers.php) to run both synthesizing and speech marks request concurrently, so you shouldn't notice any delays (waiting) when you request the speech marks. 
 
 ```php
 Array
@@ -179,6 +186,7 @@ If the given text starts with `<spaek>` then the `SSML` will be used while synth
 
 ```php
 use AhmadMayahi\Polly\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Polly;
 
 $text = <<<EOL
 <speak>
@@ -190,7 +198,9 @@ $text = <<<EOL
 </speak>
 EOL;
 
-$speechFile = $speech
+$polly = Polly::init($config);
+
+$speechFile = $polly
     ->voiceId(UnitedStates::Ivy)
     ->text($text)
     ->convert();
@@ -210,8 +220,11 @@ You may use the `neuralVoice()` or `standardVoice()` methods as follows:
 
 ```php
 use AhmadMayahi\Polly\Voices\English\UnitedStates;
+use AhmadMayahi\Polly\Polly;
 
-$speechFile = $speech
+$polly = Polly::init($config);
+
+$speechFile = $polly
     ->voiceId(UnitedStates::Kendra)
     ->text('Hello World')
     ->neuralVoice()
@@ -227,6 +240,9 @@ PHP Amazon Polly provides a convenient way to get the appropriate voice id witho
 For example, if you want to use `Joanna` you may use `englishUnitedStatesJoanna()` method as follows:
 
 ```php
+use AhmadMayahi\Polly\Polly;
+
+$polly = Polly::init($config);
 
 $speechFile = $speech
     ->englishUnitedStatesJoanna($neural = true)
