@@ -23,10 +23,10 @@ For feedback, please [contact me](https://form.jotform.com/201892949858375).
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Speech Marks](#speech-marks)
-- [SSML](#ssml)
 - [Standard vs Neural Voices](#standard-vs-neural-voices)
 - [Convenient Voice Methods](#convenient-voice-methods)
+- [Speech Marks](#speech-marks)
+- [SSML](#ssml)
 - [Voice Enums](#voice-enums)
   - [Describe Voice](#describe-voice)
 
@@ -130,8 +130,6 @@ $speechFile = $polly
     ->withSpeechMarks(SpeechMarkType::Word, SpeechMarkType::Sentence)
     ->convert();
 ```
-
-Unfortunately, Amazon Polly demands sending another request to get the speech marks, however this package uses [PHP Fibers](https://www.php.net/manual/en/language.fibers.php) to run both synthesizing and speech marks request concurrently, so you shouldn't notice any delays (waiting) when you request the speech marks. 
 
 ```php
 Array

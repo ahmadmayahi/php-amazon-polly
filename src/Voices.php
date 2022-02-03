@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace AhmadMayahi\Polly;
 
+use AhmadMayahi\Polly\Contracts\Voice;
+use AhmadMayahi\Polly\Enums\Gender;
+use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Voices\Arabic;
 use AhmadMayahi\Polly\Voices\Chinese;
 use AhmadMayahi\Polly\Voices\Danish;
@@ -32,6 +35,7 @@ use AhmadMayahi\Polly\Voices\Spanish\Spain;
 use AhmadMayahi\Polly\Voices\Swedish;
 use AhmadMayahi\Polly\Voices\Turkish;
 use AhmadMayahi\Polly\Voices\Welsh;
+use Closure;
 
 class Voices
 {
@@ -160,4 +164,99 @@ class Voices
         // Welsh
         'Gwyneth' => Welsh::Gwyneth,
     ];
+
+    protected array $criteria = [];
+
+    public static function listing(): array
+    {
+        $list = static::$voices;
+
+        ksort($list);
+
+        return static::$voices;
+    }
+
+    public static function names(): array
+    {
+        return array_keys(static::listing());
+    }
+
+    public static function namesWithLanguages(): array
+    {
+        $list = static::listing();
+
+        array_walk($list, function (Voice &$item, string $name) {
+            $item = $item->language();
+        });
+
+        return $list;
+    }
+
+    public static function enumFromString(string $voiceId): ?Voice
+    {
+        $voiceId = ucfirst(strtolower($voiceId));
+
+        if (false === array_key_exists($voiceId, static::$voices)) {
+            return null;
+        }
+
+        return static::$voices[$voiceId];
+    }
+
+    public static function find(): static
+    {
+        return new static();
+    }
+
+    public function byLanguage(Language $language): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->language() == $language);
+    }
+
+    public function neural(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->neural);
+    }
+
+    public function standard(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->standard);
+    }
+
+    public function bilingual(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->bilingual);
+    }
+
+    public function newscaster(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->newscaster);
+    }
+
+    public function child(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->child);
+    }
+
+    public function male(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->gender == Gender::Male);
+    }
+
+    public function female(): static
+    {
+        return $this->applyFilter(fn (Voice $item) => $item->describe()->gender == Gender::Female);
+    }
+
+    public function get(): array
+    {
+        return $this->criteria;
+    }
+
+    protected function applyFilter(Closure $closure): static
+    {
+        $this->criteria = array_filter($this->criteria ?: static::listing(), fn (Voice $item) => $closure($item));
+
+        return $this;
+    }
 }

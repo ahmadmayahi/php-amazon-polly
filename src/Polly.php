@@ -337,6 +337,6 @@ class Polly extends AbstractClient
             return OutputFormat::Json;
         }
 
-        throw new PollyException('Invalud output format '.$format);
+        throw new PollyException('Invalid output format '.$format);
     }
 }
