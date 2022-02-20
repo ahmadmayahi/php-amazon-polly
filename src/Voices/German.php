@@ -10,13 +10,13 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum German implements Voice
+enum German: string implements Voice
 {
-    case Marlene;
+    case Marlene = 'Marlene';
 
-    case Vicki;
+    case Vicki = 'Vicki';
 
-    case Hans;
+    case Hans = 'Hans';
 
     public function describe(): VoiceDescription
     {

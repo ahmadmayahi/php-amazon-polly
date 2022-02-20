@@ -10,15 +10,15 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Polish implements Voice
+enum Polish: string implements Voice
 {
-    case Ewa;
+    case Ewa = 'Ewa';
 
-    case Maja;
+    case Maja = 'Maja';
 
-    case Jacek;
+    case Jacek = 'Jacek';
 
-    case Jan;
+    case Jan = 'Jan';
 
     public function describe(): VoiceDescription
     {

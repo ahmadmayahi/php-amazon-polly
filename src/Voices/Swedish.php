@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Swedish implements Voice
+enum Swedish: string implements Voice
 {
-    case Astrid;
+    case Astrid = 'Astrid';
 
     public function describe(): VoiceDescription
     {

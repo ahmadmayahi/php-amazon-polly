@@ -10,11 +10,11 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Danish implements Voice
+enum Danish: string implements Voice
 {
-    case Naja;
+    case Naja = 'Naja';
 
-    case Mads;
+    case Mads = 'Mads';
 
     public function describe(): VoiceDescription
     {

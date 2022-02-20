@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Hindi implements Voice
+enum Hindi: string implements Voice
 {
-    case Aditi;
+    case Aditi = 'Aditi';
 
     public function describe(): VoiceDescription
     {

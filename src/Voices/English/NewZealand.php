@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum NewZealand implements Voice
+enum NewZealand: string implements Voice
 {
-    case Aria;
+    case Aria = 'Aria';
 
     public function describe(): VoiceDescription
     {

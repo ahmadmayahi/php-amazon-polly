@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Mexico implements Voice
+enum Mexico: string implements Voice
 {
-    case Mia;
+    case Mia = 'Mia';
 
     public function describe(): VoiceDescription
     {

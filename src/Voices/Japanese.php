@@ -10,11 +10,11 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Japanese implements Voice
+enum Japanese: string implements Voice
 {
-    case Mizuki;
+    case Mizuki = 'Mizuki';
 
-    case Takumi;
+    case Takumi = 'Takumi';
 
     public function describe(): VoiceDescription
     {

@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Romanian implements Voice
+enum Romanian: string implements Voice
 {
-    case Carmen;
+    case Carmen = 'Carmen';
 
     public function describe(): VoiceDescription
     {

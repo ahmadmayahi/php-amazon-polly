@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Korean implements Voice
+enum Korean: string implements Voice
 {
-    case Seoyeon;
+    case Seoyeon = 'Seoyeon';
 
     public function describe(): VoiceDescription
     {

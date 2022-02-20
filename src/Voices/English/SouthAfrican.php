@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum SouthAfrican implements Voice
+enum SouthAfrican: string implements Voice
 {
-    case Ayanda;
+    case Ayanda = 'Ayanda';
 
     public function describe(): VoiceDescription
     {

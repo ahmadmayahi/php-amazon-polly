@@ -10,25 +10,25 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum UnitedStates implements Voice
+enum UnitedStates: string implements Voice
 {
-    case Ivy;
+    case Ivy = 'Ivy';
 
-    case Joanna;
+    case Joanna = 'Joanna';
 
-    case Kendra;
+    case Kendra = 'Kendra';
 
-    case Kimberly;
+    case Kimberly = 'Kimberly';
 
-    case Salli;
+    case Salli = 'Salli';
 
-    case Joey;
+    case Joey = 'Joey';
 
-    case Justin;
+    case Justin = 'Justin';
 
-    case Kevin;
+    case Kevin = 'Kevin';
 
-    case Matthew;
+    case Matthew = 'Matthew';
 
     public function describe(): VoiceDescription
     {

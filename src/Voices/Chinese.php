@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Chinese implements Voice
+enum Chinese: string implements Voice
 {
-    case Zhiyu;
+    case Zhiyu = 'Zhiyu';
 
     public function describe(): VoiceDescription
     {

@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Norwegian implements Voice
+enum Norwegian: string implements Voice
 {
-    case Liv;
+    case Liv = 'Liv';
 
     public function describe(): VoiceDescription
     {

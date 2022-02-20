@@ -10,11 +10,11 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Icelandic implements Voice
+enum Icelandic: string implements Voice
 {
-    case Dora;
+    case Dora = 'Dora';
 
-    case Karl;
+    case Karl = 'Karl';
 
     public function describe(): VoiceDescription
     {

@@ -6,6 +6,7 @@ namespace AhmadMayahi\Polly\Support;
 
 use AhmadMayahi\Polly\Data\SpeechMark;
 use AhmadMayahi\Polly\Enums\SpeechMarkType;
+use AhmadMayahi\Polly\Exceptions\PollyException;
 use AhmadMayahi\Polly\Polly;
 
 class GenerateSpeechMarks
@@ -53,7 +54,7 @@ class GenerateSpeechMarks
         return array_filter($list);
     }
 
-    protected function getSpeechMarkFromString($type)
+    protected function getSpeechMarkFromString($type): SpeechMarkType
     {
         if ($type === 'word') {
             return SpeechMarkType::Word;
@@ -70,5 +71,7 @@ class GenerateSpeechMarks
         if ($type === 'viseme') {
             return SpeechMarkType::Viseme;
         }
+
+        throw new PollyException('Invalid mark type');
     }
 }

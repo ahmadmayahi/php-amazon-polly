@@ -10,11 +10,11 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Russian implements Voice
+enum Russian: string implements Voice
 {
-    case Tatyana;
+    case Tatyana = 'Tatyana';
 
-    case Maxim;
+    case Maxim = 'Maxim';
 
     public function describe(): VoiceDescription
     {

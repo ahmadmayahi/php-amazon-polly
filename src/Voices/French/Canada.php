@@ -10,11 +10,11 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Canada implements Voice
+enum Canada: string implements Voice
 {
-    case Chantal;
+    case Chantal = 'Chantal';
 
-    case Gabrielle;
+    case Gabrielle = 'Gabrielle';
 
     public function describe(): VoiceDescription
     {

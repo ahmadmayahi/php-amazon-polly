@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace AhmadMayahi\Polly\Enums;
 
-enum Gender
+enum Gender: string
 {
-    case Female;
+    case Female = 'Female';
 
-    case Male;
+    case Male = 'Male';
 }

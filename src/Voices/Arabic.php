@@ -10,9 +10,9 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Arabic implements Voice
+enum Arabic: string implements Voice
 {
-    case Zeina;
+    case Zeina = 'Zeina';
 
     public function describe(): VoiceDescription
     {

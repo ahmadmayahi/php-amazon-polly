@@ -10,11 +10,11 @@ use AhmadMayahi\Polly\Enums\Gender;
 use AhmadMayahi\Polly\Enums\Language;
 use AhmadMayahi\Polly\Support\VoiceDescriptionFactory;
 
-enum Indian implements Voice
+enum Indian: string implements Voice
 {
-    case Aditi;
+    case Aditi = 'Aditi';
 
-    case Raveena;
+    case Raveena = 'Raveena';
 
     public function describe(): VoiceDescription
     {
