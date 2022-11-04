@@ -22,8 +22,8 @@ enum Brazil: string implements Voice
     {
         return match ($this) {
             self::Camila => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: true, standard: true),
-          self::Vitoria => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: false, standard: true),
-          self::Ricardo => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: false, standard: true),
+            self::Vitoria => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Female, neural: false, standard: true),
+            self::Ricardo => VoiceDescriptionFactory::generate(voice: $this, gender: Gender::Male, neural: false, standard: true),
         };
     }
 
