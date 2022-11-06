@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## v1.2.0 - 2022-11-06
+
+Fix viseme
+
 ## v1.0 - 2022-01-29
 
 - initial release
