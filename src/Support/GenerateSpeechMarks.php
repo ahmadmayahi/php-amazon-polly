@@ -21,6 +21,7 @@ class GenerateSpeechMarks
     /**
      * @param SpeechMarkType ...$speechMarkType
      * @return array<SpeechMark>
+     * @throws \JsonException
      */
     public function generate(SpeechMarkType ...$speechMarkType): array
     {
@@ -40,15 +41,16 @@ class GenerateSpeechMarks
                 return null;
             }
 
-            $decodedMarkLine = json_decode($markLine);
+            $decodedMarkLine = json_decode($markLine, true, 512, JSON_THROW_ON_ERROR);
 
             return new SpeechMark(
-                $decodedMarkLine->time,
-                $this->getSpeechMarkFromString($decodedMarkLine->type),
-                $decodedMarkLine->start,
-                $decodedMarkLine->end,
-                $decodedMarkLine->value,
+                time: $decodedMarkLine['time'],
+                type: $this->getSpeechMarkFromString($decodedMarkLine['type']),
+                start: $decodedMarkLine['start'] ?? null,
+                end: $decodedMarkLine['end'] ?? null,
+                value: $decodedMarkLine['value'],
             );
+
         }, $speechMarkList);
 
         return array_filter($list);
