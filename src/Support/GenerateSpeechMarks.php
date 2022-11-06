@@ -50,7 +50,6 @@ class GenerateSpeechMarks
                 end: $decodedMarkLine['end'] ?? null,
                 value: $decodedMarkLine['value'],
             );
-
         }, $speechMarkList);
 
         return array_filter($list);
